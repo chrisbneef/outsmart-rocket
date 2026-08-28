@@ -17,3 +17,8 @@ server, e.g. `python3 -m http.server 8899`.
 
 Messaging follows the StoryBrand package in the Pre-Approve Me project
 (`storybrand/`); design system recorded in that project's `DESIGN.md`.
+
+## Deploy
+
+Auto-deployed by Vercel from `main`. `robots.txt` welcomes all crawlers
+including AI answer engines; `sitemap.xml` lists the three pages.

@@ -1,0 +1,21 @@
+# outsmartrocket.com - all crawlers welcome, including AI answer engines.
+User-agent: *
+Allow: /
+
+# Explicit welcome for AI search/answer bots (GEO)
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: Meta-ExternalAgent
+Allow: /
+
+Sitemap: https://outsmartrocket.com/sitemap.xml
