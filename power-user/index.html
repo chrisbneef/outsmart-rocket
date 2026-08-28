@@ -26,6 +26,7 @@
     {"@type": "Question", "name": "Do I need to be technical to customize Pre-Approve Me?", "acceptedAnswer": {"@type": "Answer", "text": "No. The deepest builds happen in build sessions with the founder's team: bring your process, and build it together. Plenty of customization is point-and-click, and the rest is a project we scope with you."}},
     {"@type": "Question", "name": "What can I actually customize?", "acceptedAnswer": {"@type": "Answer", "text": "Custom app views for specific client types, milestone messages written per recipient, your own tools and calculators embedded in the app, and automation wiring into your existing stack."}},
     {"@type": "Question", "name": "What is the Native tier?", "acceptedAnswer": {"@type": "Answer", "text": "Your own branded app shipped to the Apple and Google app stores under your name. It carries a setup fee and is a build we do together; the standard tier is a progressive web app with seat pricing only."}},
+    {"@type": "Question", "name": "Is this another point of sale?", "acceptedAnswer": {"@type": "Answer", "text": "No. Point-of-sale systems manage the transaction and go quiet. Pre-Approve Me is the ecosystem around the relationship: the place where the pre-approval, the loan, the conversation, and everything a loan officer creates live together, under their brand."}},
     {"@type": "Question", "name": "Whose data is it?", "acceptedAnswer": {"@type": "Answer", "text": "Yours. Your clients stay your clients, your data stays accessible to you, and Pre-Approve Me never markets to your customers."}}
   ]
 }
@@ -204,6 +205,13 @@
   @media(max-width:760px){.oa-proof{grid-template-columns:1fr}}
   .oa-proof .phone{width:200px;transform:rotate(-1.5deg)}
   .ui-detail.wide{max-width:560px}
+  .eco{margin-top:4.2rem;text-align:center}
+  .eco-lines{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:-.02em;
+    font-size:clamp(1.15rem,2.1vw,1.6rem);color:var(--ink-3);text-wrap:balance}
+  .eco-one{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:-.025em;
+    font-size:clamp(1.9rem,3.6vw,2.8rem);color:var(--ink);margin-top:.5rem}
+  .eco-one em{font-style:normal;position:relative;white-space:nowrap}
+  .eco-one em::after{content:"";position:absolute;left:1px;right:1px;bottom:-.09em;height:.08em;background:var(--green);border-radius:3px}
   .pull{max-width:44rem;margin:2.4rem 0 0;padding:1.4rem 1.6rem;background:var(--card);border:1px solid var(--line);border-radius:14px}
   .pull p{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:-.015em;line-height:1.35;color:var(--ink)}
   .pull .qlead{font-family:'Lato',sans-serif;font-weight:400;font-size:.92rem;color:var(--ink-3);margin-bottom:.6rem}
@@ -359,6 +367,7 @@ provenance.
     <div class="wrap">
       <h2>Off-the-shelf software flattens you into everyone else's template</h2>
       <p style="color:var(--ink-2)">Rigid point-of-sale tools cannot express the process you spent a career refining. Requests die on a vendor's roadmap. Your buyers see the same screens as everyone else's.</p>
+      <p style="color:var(--ink-2);margin-top:.9rem">And AI has made it ridiculously easy to create your own realtor tools, calculators, guides, and assistants. Creation is not the problem anymore. Connection is: your creations live on scattered links, nowhere near the place your buyers get pre-approved, manage their loan, and talk to you.</p>
       <div class="two-col">
         <p class="kicker-line">My process is my edge, and every tool makes me look like <b>the LO across town.</b></p>
         <div class="story">
@@ -373,7 +382,7 @@ provenance.
   <section id="depth">
     <div class="wrap">
       <h2>What opens when you open the hood</h2>
-      <p style="color:var(--ink-2)">Everyone gets the three views on day one. This is what the few who go deeper actually build.</p>
+      <p style="color:var(--ink-2)">Everyone gets the three views on day one. This is what the few who go deeper actually build, and where everything they create connects to the client relationship.</p>
       <div class="hood-lattice">
         <div class="hl-cell">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="7.5" height="7.5" rx="1.5" stroke="#63CF9E" stroke-width="1.5"/><rect x="12" y="2.5" width="7.5" height="7.5" rx="1.5" stroke="#63CF9E" stroke-width="1.5"/><rect x="2.5" y="12" width="7.5" height="7.5" rx="1.5" stroke="#63CF9E" stroke-width="1.5"/><rect x="12" y="12" width="7.5" height="7.5" rx="1.5" stroke="#8A93A8" stroke-width="1.5"/></svg>
@@ -388,7 +397,7 @@ provenance.
         <div class="hl-cell">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="3" y="4" width="16" height="12" rx="2" stroke="#63CF9E" stroke-width="1.5"/><path d="M8 19.5h6" stroke="#63CF9E" stroke-width="1.5" stroke-linecap="round"/><path d="M7.5 9l-2 2 2 2M14.5 9l2 2-2 2" stroke="#63CF9E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <h3>Your tools, inside your app</h3>
-          <p>The calculator you built, the guide you wrote, the video series you recorded. Embed them so your buyers find your work inside your app instead of on five scattered links.</p>
+          <p>The calculator you built with AI, the guide you wrote, the assistant you trained. Embedded where your buyers already are: getting pre-approved, tracking their loan, talking to you. Not on five scattered links.</p>
         </div>
         <div class="hl-cell">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="5.5" cy="11" r="2.5" stroke="#63CF9E" stroke-width="1.5"/><circle cx="16.5" cy="5.5" r="2.5" stroke="#63CF9E" stroke-width="1.5"/><circle cx="16.5" cy="16.5" r="2.5" stroke="#8A93A8" stroke-width="1.5"/><path d="M7.8 9.9l6.4-3.2M7.8 12.1l6.4 3.2" stroke="#63CF9E" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -416,6 +425,10 @@ provenance.
           <figure class="ui-detail wide"><img src="../assets/offer-architect-pdf.png" alt="Offer Architect PDF: three buyer-agency fee scenarios side by side, co-branded" width="980" height="758" loading="lazy"><figcaption>The PDF your agent sends</figcaption></figure>
           <p class="shot-cap left">Offer Architect in practice: the buyer-agency fee modeled three ways, and the co-branded PDF with your agent's name beside yours.</p>
         </div>
+      </div>
+      <div class="eco">
+        <p class="eco-lines">Your creativity. Your tools. Your brand. Your client relationships.</p>
+        <p class="eco-one">One <em>ecosystem.</em></p>
       </div>
     </div>
   </section>
@@ -497,6 +510,10 @@ provenance.
         <details>
           <summary>What is the Native tier, honestly?</summary>
           <div>Your own branded app shipped to the Apple and Google app stores under your name. It carries a setup fee and it is a real build we do together, including the store submission process. The Standard tier is a progressive web app with seat pricing only. Pick by ambition, not pressure.</div>
+        </details>
+        <details>
+          <summary>Is this another point of sale?</summary>
+          <div>No. Point-of-sale systems manage the transaction and go quiet. Pre-Approve Me is the ecosystem around the relationship: the place where the pre-approval, the loan, the conversation, and everything you create live together, under your brand. Your LOS keeps doing what it does.</div>
         </details>
         <details>
           <summary>Whose data is it?</summary>
