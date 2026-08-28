@@ -87,6 +87,7 @@
   .nav{display:flex;align-items:center;gap:2rem;height:4.25rem}
   .wordmark{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.08rem;letter-spacing:-.02em;color:var(--ink);text-decoration:none;white-space:nowrap}
   .wordmark b{color:var(--green-bright)}
+  .wordmark img{display:block;height:30px;width:auto}
   .nav-links{display:flex;gap:1.6rem;margin-left:auto}
   .nav-links a{color:var(--ink-2);text-decoration:none;font-size:.95rem}
   .nav-links a:hover{color:var(--ink)}
@@ -196,6 +197,13 @@
     letter-spacing:.16em;text-transform:uppercase;color:var(--green-bright);
     padding:.5rem .8rem;border-top:1px solid var(--line);
   }
+  .coach-side .phone{width:min(250px,80%);margin:0 auto;transform:none}
+  .shot-cap{font-size:.85rem;color:var(--ink-3);text-align:center;margin:1rem auto 0;max-width:34ch}
+  .shot-cap.left{text-align:left;margin:.8rem 0 0;max-width:52ch}
+  .oa-proof{display:grid;grid-template-columns:auto 1fr;gap:2.6rem;align-items:center;margin-top:2.6rem}
+  @media(max-width:760px){.oa-proof{grid-template-columns:1fr}}
+  .oa-proof .phone{width:200px;transform:rotate(-1.5deg)}
+  .ui-detail.wide{max-width:560px}
   .pull{max-width:44rem;margin:2.4rem 0 0;padding:1.4rem 1.6rem;background:var(--card);border:1px solid var(--line);border-radius:14px}
   .pull p{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:-.015em;line-height:1.35;color:var(--ink)}
   .pull .qlead{font-family:'Lato',sans-serif;font-weight:400;font-size:.92rem;color:var(--ink-3);margin-bottom:.6rem}
@@ -269,7 +277,7 @@
   @media(max-width:520px){
     .nav{gap:.6rem}
     .nav .btn{font-size:.72rem;padding:.45rem .6rem;border-radius:8px;white-space:nowrap}
-    .wordmark{font-size:.92rem}
+    .wordmark img{height:24px}
   }
 </style>
 <script type="application/ld+json">
@@ -300,7 +308,7 @@ provenance.
 
 <header>
   <div class="wrap nav">
-    <a class="wordmark" href="/">Pre-Approve<b>Me</b></a>
+    <a class="wordmark" href="/"><img src="../assets/logo-white.png" alt="Pre-Approve Me" height="30"></a>
     <nav class="nav-links" aria-label="Main">
       <a href="#depth">What opens</a>
       <a href="#with-michael">Build sessions</a>
@@ -402,6 +410,13 @@ provenance.
           <p>On the Native tier, your app ships to the Apple and Google app stores under your own name. Your listing, your icon on their phone, everything above included.</p>
         </div>
       </div>
+      <div class="oa-proof">
+        <figure class="phone oa"><img src="../assets/oa-form.png" alt="Offer Architect input form: model the buyer-agency fee into the offer" width="520" height="1065" loading="lazy"></figure>
+        <div>
+          <figure class="ui-detail wide"><img src="../assets/offer-architect-pdf.png" alt="Offer Architect PDF: three buyer-agency fee scenarios side by side, co-branded" width="980" height="758" loading="lazy"><figcaption>The PDF your agent sends</figcaption></figure>
+          <p class="shot-cap left">Offer Architect in practice: the buyer-agency fee modeled three ways, and the co-branded PDF with your agent's name beside yours.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -415,10 +430,10 @@ provenance.
           <p>"About 65% of these I built because realtors expressed friction or expense in their business that I could take care of by essentially building a tool."</p>
           <p class="why">The platform grows by listening to the people who push it hardest. Power users are not an edge case here; they set the roadmap.</p>
         </div>
-        <figure class="ui-detail">
-          <img src="../assets/detail-tools.png" alt="Michael's own Renegade Home Mortgage app: client reviews, calculators, and homebuyer education banners" width="1020" height="450" loading="lazy">
-          <figcaption>Inside Michael's own app, under his brand</figcaption>
-        </figure>
+        <div class="coach-side">
+          <figure class="phone"><img src="../assets/coach-chat.png" alt="AI Real Estate Coach: a scripted answer to how an agent gets paid, then its own follow-up question" width="520" height="1065" loading="lazy"></figure>
+          <p class="shot-cap">The coach answering the question agents freeze on, then asking its own.</p>
+        </div>
       </div>
     </div>
   </section>

@@ -87,6 +87,7 @@
   .nav{display:flex;align-items:center;gap:2rem;height:4.25rem}
   .wordmark{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.08rem;letter-spacing:-.02em;color:var(--ink);text-decoration:none;white-space:nowrap}
   .wordmark b{color:var(--green-bright)}
+  .wordmark img{display:block;height:30px;width:auto}
   .nav-links{display:flex;gap:1.6rem;margin-left:auto}
   .nav-links a{color:var(--ink-2);text-decoration:none;font-size:.95rem}
   .nav-links a:hover{color:var(--ink)}
@@ -173,6 +174,12 @@
   .recruit-cols{display:grid;grid-template-columns:1.15fr 1fr;gap:3rem;align-items:center;margin-top:.6rem}
   @media(max-width:860px){.recruit-cols{grid-template-columns:1fr;gap:2.2rem}}
   .shot-cap{font-size:.85rem;color:var(--ink-3);text-align:center;margin:1rem auto 0;max-width:34ch}
+  .shot{display:flex;justify-content:center;position:relative}
+  .ui-detail{position:absolute;z-index:2;width:min(300px,78%);border-radius:12px;overflow:hidden;
+    border:1px solid var(--line-2);box-shadow:0 18px 40px rgba(0,0,0,.5);background:var(--card-2);left:0;bottom:8%}
+  .ui-detail img{display:block;width:100%;height:auto}
+  .ui-detail figcaption{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.64rem;font-weight:600;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--green-bright);padding:.5rem .8rem;border-top:1px solid var(--line)}
   .pull{max-width:44rem;margin:2.4rem 0 0;padding:1.4rem 1.6rem;background:var(--card);border:1px solid var(--line);border-radius:14px}
   .pull p{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:-.015em;line-height:1.35;color:var(--ink)}
   .pull .why{font-family:'Lato',sans-serif;font-weight:400;font-size:.98rem;color:var(--ink-2);margin-top:.8rem}
@@ -247,7 +254,7 @@
   @media(max-width:520px){
     .nav{gap:.6rem}
     .nav .btn{font-size:.72rem;padding:.45rem .6rem;border-radius:8px;white-space:nowrap}
-    .wordmark{font-size:.92rem}
+    .wordmark img{height:24px}
   }
 </style>
 <script type="application/ld+json">
@@ -278,7 +285,7 @@ provenance.
 
 <header>
   <div class="wrap nav">
-    <a class="wordmark" href="/">Pre-Approve<b>Me</b></a>
+    <a class="wordmark" href="/"><img src="../assets/logo-white.png" alt="Pre-Approve Me" height="30"></a>
     <nav class="nav-links" aria-label="Main">
       <a href="#adoption">Why LOs use it</a>
       <a href="#recruiting">Recruiting</a>
@@ -374,7 +381,10 @@ provenance.
           <div class="mini-view"><span class="n">02</span><div><h3>Loan view</h3><p>Live milestones everyone can see. The "any update?" calls stop reaching your branch managers.</p></div></div>
           <div class="mini-view hot"><span class="n">03</span><div><h3>Post-closing</h3><p>Buyers keep watching their equity and home value in the place that carries your company's name. The next transaction starts where they already are.</p></div></div>
         </div>
-        <figure class="phone"><img src="../assets/loan-view.png" alt="Loan view: live milestone tracking every buyer and agent can see" width="520" height="1065" loading="lazy"></figure>
+        <div class="shot">
+          <figure class="phone"><img src="../assets/loan-view.png" alt="Loan view: live milestone tracking every buyer and agent can see" width="520" height="1065" loading="lazy"></figure>
+          <figure class="ui-detail"><img src="../assets/detail-request.png" alt="In-app: qualified scenario with one-tap Request Pre-Approval Letter" width="1000" height="340" loading="lazy"><figcaption>Qualified, self-served</figcaption></figure>
+        </div>
       </div>
     </div>
   </section>
