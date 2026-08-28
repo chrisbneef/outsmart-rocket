@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Power Users | Outsmart Rocket</title>
+<meta name="description" content="Pre-Approve Me for power users: start from three working views, then open the hood. Custom views, custom workflows, your own tools embedded, and an app nobody else has.">
+<link rel="canonical" href="https://outsmartrocket.com/power-user/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="For Power Users | Outsmart Rocket">
+<meta property="og:description" content="Pre-Approve Me, rebuilt around your exact process. Open the hood: custom views, custom workflows, your own tools embedded, and an app nobody else has.">
+<meta property="og:url" content="https://outsmartrocket.com/power-user/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Lato:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Do I need to be technical to customize Pre-Approve Me?", "acceptedAnswer": {"@type": "Answer", "text": "No. The deepest builds happen in build sessions with the founder's team: bring your process, and build it together. Plenty of customization is point-and-click, and the rest is a project we scope with you."}},
+    {"@type": "Question", "name": "What can I actually customize?", "acceptedAnswer": {"@type": "Answer", "text": "Custom app views for specific client types, milestone messages written per recipient, your own tools and calculators embedded in the app, and automation wiring into your existing stack."}},
+    {"@type": "Question", "name": "What is the Native tier?", "acceptedAnswer": {"@type": "Answer", "text": "Your own branded app shipped to the Apple and Google app stores under your name. It carries a setup fee and is a build we do together; the standard tier is a progressive web app with seat pricing only."}},
+    {"@type": "Question", "name": "Whose data is it?", "acceptedAnswer": {"@type": "Answer", "text": "Yours. Your clients stay your clients, your data stays accessible to you, and Pre-Approve Me never markets to your customers."}}
+  ]
+}
+</script>
+<style>
+  :root{
+    --ground:#0B0D12;
+    --band:#0A1628;
+    --card:#12161F;
+    --card-2:#171C27;
+    --line:rgba(214,222,236,.10);
+    --line-2:rgba(214,222,236,.16);
+    --ink:#F4F6F9;
+    --ink-2:#B7BFCE;
+    --ink-3:#8A93A8;
+    --green:#44C58B;
+    --green-bright:#63CF9E;
+    --green-deep:#0E3A26;
+    --green-ink:#07130D;
+    --orange:#FF6C0A;
+    --orange-bright:#FF8B3D;
+    --grid-line:rgba(199,210,228,.055);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    background:var(--ground);color:var(--ink);
+    font-family:'Lato',system-ui,-apple-system,sans-serif;
+    font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--green);color:var(--green-ink)}
+  ::-webkit-scrollbar{width:12px;background:var(--ground)}
+  ::-webkit-scrollbar-thumb{background:#232A38;border-radius:6px;border:3px solid var(--ground)}
+  a{color:var(--green-bright);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+  :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:2px}
+  h1,h2,h3{font-family:'Archivo',sans-serif;letter-spacing:-.025em;text-wrap:balance}
+  h2{font-size:clamp(1.75rem,3.6vw,2.6rem);font-weight:800;line-height:1.08;margin-bottom:1rem}
+  h3{font-size:1.15rem;font-weight:700;letter-spacing:-.01em}
+  p{max-width:62ch}
+  .wrap{max-width:74rem;margin:0 auto;padding:0 1.5rem}
+  section{padding:5.5rem 0}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:1rem;letter-spacing:-.005em;
+    border-radius:10px;padding:.85rem 1.5rem;text-decoration:none;
+    transition:transform .18s cubic-bezier(.2,.8,.3,1), background .18s ease, border-color .18s ease;
+  }
+  .btn-primary{background:var(--green);color:var(--green-ink)}
+  .btn-primary:hover{background:var(--green-bright);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
+  .btn-ghost:hover{border-color:rgba(214,222,236,.34)}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(11,13,18,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:2rem;height:4.25rem}
+  .wordmark{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.08rem;letter-spacing:-.02em;color:var(--ink);text-decoration:none;white-space:nowrap}
+  .wordmark b{color:var(--green-bright)}
+  .nav-links{display:flex;gap:1.6rem;margin-left:auto}
+  .nav-links a{color:var(--ink-2);text-decoration:none;font-size:.95rem}
+  .nav-links a:hover{color:var(--ink)}
+  .nav .btn{padding:.55rem 1.05rem;font-size:.9rem}
+  .mnav{display:none;position:relative}
+  .mnav summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line-2);border-radius:8px}
+  .mnav summary::-webkit-details-marker{display:none}
+  .mnav[open] summary{border-color:var(--green)}
+  .mnav .panel{position:absolute;right:0;top:46px;z-index:60;background:var(--card-2);border:1px solid var(--line-2);border-radius:12px;padding:.6rem;min-width:230px;display:flex;flex-direction:column;box-shadow:0 18px 40px rgba(0,0,0,.5)}
+  .mnav .panel a{color:var(--ink);text-decoration:none;padding:.6rem .8rem;border-radius:8px;font-size:.95rem}
+  .mnav .panel a:hover{background:rgba(214,222,236,.06)}
+  @media(max-width:900px){.nav-links{display:none}.nav .btn{margin-left:auto}.mnav{display:block}}
+
+  /* hero: phone with floating config cards */
+  .hero{position:relative;overflow:hidden;padding:5rem 0}
+  .hero-grid{position:absolute;inset:0;pointer-events:none;
+    background-image:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 48px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 48px);
+    -webkit-mask-image:radial-gradient(1100px 780px at 40% 30%, #000 20%, transparent 78%);
+            mask-image:radial-gradient(1100px 780px at 40% 30%, #000 20%, transparent 78%);
+  }
+  .hero-glow{position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(720px 520px at 24% 40%, rgba(68,197,139,.10), transparent 68%)}
+  .hero-cols{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center;position:relative}
+  @media(max-width:900px){.hero-cols{grid-template-columns:1fr;gap:3rem}}
+  .hero h1{font-size:clamp(2.3rem,4.6vw,3.5rem);font-weight:800;line-height:1.04;margin-bottom:1.3rem}
+  .hero h1 em{font-style:normal;position:relative;white-space:nowrap}
+  .hero h1 em::after{content:"";position:absolute;left:1px;right:1px;bottom:-.09em;height:.075em;background:var(--green);border-radius:3px}
+  .hero .sub{color:var(--ink-2);font-size:1.14rem;margin-bottom:2rem}
+  .hero-ctas{display:flex;gap:.9rem;flex-wrap:wrap}
+
+  .hood{position:relative;display:flex;justify-content:center;min-height:460px;align-items:center}
+  .phone{width:min(250px,58%);border-radius:34px;background:#05070B;padding:7px;position:relative;z-index:1;
+    border:1px solid rgba(214,222,236,.14);
+    box-shadow:0 42px 80px rgba(0,0,0,.6), 0 12px 28px rgba(0,0,0,.45);transform:rotate(1.5deg)}
+  .phone img{display:block;width:100%;height:auto;border-radius:27px}
+  .phone::after{content:"";position:absolute;inset:7px;border-radius:27px;pointer-events:none;
+    background:linear-gradient(116deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.02) 30%, transparent 50%)}
+  .cfg{
+    position:absolute;z-index:2;background:var(--card-2);border:1px solid var(--line-2);border-radius:12px;
+    padding:.75rem .9rem;box-shadow:0 18px 40px rgba(0,0,0,.5);max-width:178px;
+  }
+  .cfg .k{font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-bright);display:block;margin-bottom:.3rem}
+  .cfg .v{font-size:.88rem;color:var(--ink);line-height:1.4}
+  .cfg1{top:5%;left:-6px}
+  .cfg2{top:40%;right:-6px}
+  .cfg3{bottom:6%;left:0}
+  @media(max-width:900px){
+    .hood{min-height:420px}
+    .cfg{max-width:190px}
+    .cfg1{left:0}.cfg2{right:0}.cfg3{left:0}
+  }
+  @media(max-width:700px){
+    .hood{flex-direction:column;min-height:0;gap:1rem;align-items:stretch}
+    .hood .phone{width:min(240px,70%);margin:0 auto;order:-1}
+    .cfg{position:static;max-width:100%;box-shadow:none}
+  }
+
+  .band{background:var(--band);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative}
+  .band > .wrap{position:relative}
+  .band::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 48px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 48px);
+    -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.3) 55%, transparent 96%);
+            mask-image:linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.3) 55%, transparent 96%);
+  }
+  .two-col{display:grid;grid-template-columns:1fr 1.2fr;gap:3.2rem;align-items:start;margin-top:2.4rem}
+  @media(max-width:860px){.two-col{grid-template-columns:1fr;gap:2rem}}
+  .kicker-line{font-size:1.3rem;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-.015em;color:var(--ink);max-width:36ch}
+  .kicker-line b{color:var(--orange-bright);font-weight:700}
+  .story{border-left:1px solid var(--green);padding:.35rem 0 .35rem 1.6rem;max-width:56ch}
+  .story p{color:var(--ink-2);font-size:1.08rem;margin-bottom:.9rem}
+  .story .punch{color:var(--ink);font-weight:700;font-family:'Archivo',sans-serif;font-size:1.15rem;letter-spacing:-.01em}
+  .story .attr{font-size:.88rem;color:var(--ink-3)}
+
+  /* hood lattice: conveyor grammar, ranked two-tier */
+  .hood-lattice{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:2.4rem}
+  @media(max-width:620px){.hood-lattice{grid-template-columns:1fr}}
+  .hl-cell{background:var(--card);padding:1.6rem 1.5rem}
+  .hl-cell svg{display:block;margin-bottom:.95rem}
+  .hl-cell h3{margin-bottom:.5rem}
+  .hl-cell p{font-size:.94rem;color:var(--ink-2)}
+  .hl-cell.wide{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:start}
+  .hl-cell.wide svg{margin-bottom:0;margin-top:.2rem}
+  @media(max-width:620px){.hl-cell.wide{grid-template-columns:1fr;gap:.6rem}}
+  .native-finale{
+    margin-top:1.1rem;background:linear-gradient(180deg, rgba(14,58,38,.35), var(--card) 55%);
+    border:1px solid rgba(68,197,139,.4);border-radius:14px;padding:1.7rem 1.5rem;
+    display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:start;
+  }
+  @media(max-width:620px){.native-finale{grid-template-columns:1fr;gap:.6rem}}
+  .native-finale h3{margin-bottom:.5rem}
+  .native-finale p{font-size:.96rem;color:var(--ink-2)}
+
+  .build-cols{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center;margin-top:.6rem}
+  @media(max-width:860px){.build-cols{grid-template-columns:1fr;gap:1.6rem}}
+  .build-cols .pull{margin-top:0;max-width:none}
+  .ui-detail{
+    border-radius:12px;overflow:hidden;border:1px solid var(--line-2);
+    box-shadow:0 18px 40px rgba(0,0,0,.5);background:var(--card-2);max-width:420px;justify-self:center;
+  }
+  .ui-detail img{display:block;width:100%;height:auto}
+  .ui-detail figcaption{
+    font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.64rem;font-weight:600;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--green-bright);
+    padding:.5rem .8rem;border-top:1px solid var(--line);
+  }
+  .pull{max-width:44rem;margin:2.4rem 0 0;padding:1.4rem 1.6rem;background:var(--card);border:1px solid var(--line);border-radius:14px}
+  .pull p{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:-.015em;line-height:1.35;color:var(--ink)}
+  .pull .qlead{font-family:'Lato',sans-serif;font-weight:400;font-size:.92rem;color:var(--ink-3);margin-bottom:.6rem}
+  .pull .why{font-family:'Lato',sans-serif;font-weight:400;font-size:.98rem;color:var(--ink-2);margin-top:.8rem}
+
+  .plan-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.4rem;counter-reset:step}
+  @media(max-width:820px){.plan-steps{grid-template-columns:1fr}}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.6rem 1.4rem;counter-increment:step}
+  .step::before{content:counter(step,decimal-leading-zero);
+    font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600;font-size:.8rem;letter-spacing:.14em;color:var(--green-bright);display:block;margin-bottom:1rem}
+  .step h3{margin-bottom:.55rem}
+  .step p{font-size:.95rem;color:var(--ink-2)}
+  .agree{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+  .agree span{font-size:.85rem;color:var(--ink-2);border:1px solid var(--line-2);border-radius:999px;padding:.4rem .95rem;background:var(--card)}
+
+  .stakes{padding:3.6rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg, rgba(255,108,10,.045), transparent 70%)}
+  .stakes .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:3.2rem;align-items:end}
+  @media(max-width:860px){.stakes .wrap{grid-template-columns:1fr;gap:1.2rem}}
+  .stakes p{font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(1.25rem,2.4vw,1.7rem);letter-spacing:-.015em;line-height:1.3;max-width:40ch}
+  .stakes p b{color:var(--orange-bright);font-weight:700}
+  .stakes .soft{font-family:'Lato',sans-serif;font-weight:400;font-size:1rem;color:var(--ink-3);max-width:52ch;padding-bottom:.2rem}
+
+  .router{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:2.4rem}
+  @media(max-width:820px){.router{grid-template-columns:1fr}}
+  .route{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.7rem 1.5rem;text-decoration:none;color:var(--ink);
+    transition:border-color .18s ease, transform .18s cubic-bezier(.2,.8,.3,1)}
+  .route:hover{border-color:rgba(68,197,139,.45);transform:translateY(-2px)}
+  .route .path{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.72rem;letter-spacing:.12em;color:var(--ink-3);display:block;margin-bottom:.9rem}
+  .route h3{margin-bottom:.5rem}
+  .route p{color:var(--ink-2);font-size:.95rem;margin-bottom:1.1rem}
+  .route .go{color:var(--green-bright);font-weight:700;font-size:.95rem;display:inline-flex;align-items:center}
+  .route:hover .go{text-decoration:underline;text-underline-offset:3px}
+  .arrow-i{display:inline-block;vertical-align:-.12em;margin-left:.3rem;transition:transform .18s cubic-bezier(.2,.8,.3,1)}
+  .route:hover .arrow-i{transform:translateX(3px)}
+
+  .faq-list{max-width:46rem}
+  .faq-list details{border-bottom:1px solid var(--line)}
+  .faq-list details summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 0;font-family:'Archivo',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+  .faq-list details summary::-webkit-details-marker{display:none}
+  .faq-list details summary:hover{color:var(--green-bright)}
+  .faq-list details summary::after{content:"";flex:none;width:14px;height:14px;transition:transform .18s ease;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M7 2.5v9M2.5 7h9' stroke='%2363CF9E' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center/14px no-repeat}
+  .faq-list details[open] summary::after{transform:rotate(45deg)}
+  .faq-list details div{padding:0 0 1.25rem;color:var(--ink-2);max-width:60ch}
+
+  .closing{position:relative;overflow:hidden;text-align:center;padding:7rem 0 6rem}
+  .closing .hero-grid{-webkit-mask-image:radial-gradient(900px 600px at 50% 55%, #000 15%, transparent 75%);mask-image:radial-gradient(900px 600px at 50% 55%, #000 15%, transparent 75%)}
+  .closing h2{font-size:clamp(2rem,4.6vw,3.2rem);max-width:20ch;margin:0 auto 1.1rem}
+  .closing .sub{color:var(--ink-2);max-width:46ch;margin:0 auto 2.2rem}
+  .closing .hero-glow{background:radial-gradient(760px 520px at 50% 70%, rgba(68,197,139,.12), transparent 68%)}
+
+  footer{border-top:1px solid var(--line);padding:2.6rem 0 3rem;font-size:.9rem;color:var(--ink-3)}
+  footer .cols{display:grid;grid-template-columns:1.5fr 1fr;gap:2.5rem;align-items:start;margin-bottom:1.8rem}
+  @media(max-width:820px){footer .cols{grid-template-columns:1fr;gap:1.6rem}}
+  footer .mission{max-width:62ch}
+  footer .flinks{display:flex;flex-direction:column;gap:.55rem;justify-self:end;text-align:right}
+  @media(max-width:820px){footer .flinks{justify-self:start;text-align:left}}
+  footer .row{display:flex;flex-wrap:wrap;gap:.8rem 1.8rem;align-items:center;justify-content:space-between}
+  footer a{color:var(--ink-3)}
+  .sample-note{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);border:1px dashed var(--line-2);border-radius:8px;padding:.55rem .9rem;display:inline-block}
+
+  @keyframes rise{from{opacity:.001;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  .hero h1{animation:rise .7s cubic-bezier(.2,.8,.3,1) both}
+  .hero .sub{animation:rise .7s .08s cubic-bezier(.2,.8,.3,1) both}
+  .hero-ctas{animation:rise .7s .16s cubic-bezier(.2,.8,.3,1) both}
+  .hood{animation:rise .8s .22s cubic-bezier(.2,.8,.3,1) both}
+
+  @media(max-width:700px){
+    section{padding:4rem 0}
+    .hero{padding:3rem 0 4rem}
+  }
+  @media(max-width:520px){
+    .nav{gap:.6rem}
+    .nav .btn{font-size:.72rem;padding:.45rem .6rem;border-radius:8px;white-space:nowrap}
+    .wordmark{font-size:.92rem}
+  }
+</style>
+</head>
+<body>
+<!--
+THESIS: the power-user page is an invitation, not a spec sheet; the hero shows
+the hood open (real app flanked by floating config cards naming real
+customizations), and the copy sells building WITH the founder.
+OWN-WORLD: inherits DESIGN.md. New component: floating cfg cards on leader-less
+offsets around the phone.
+STORY: a top producer who feels flattened by template software sees their
+process expressed in the app, learns the deepest builds are joint projects,
+and books a build session with Michael.
+FIRST VIEWPORT: left copy (headline, sub, green CTA + ghost), right phone with
+three floating config cards.
+FORM: sibling surface of home-sample.html in the established world; no roll.
+Code-led. Copy source: storybrand/03-brandscript-power-user.md + field-notes.md.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the
+finish review, the verdict, DESIGN.md, and every shipping raster carrying its
+provenance.
+-->
+
+<header>
+  <div class="wrap nav">
+    <a class="wordmark" href="/">Pre-Approve<b>Me</b></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#depth">What opens</a>
+      <a href="#with-michael">Build sessions</a>
+      <a href="#native">Native tier</a>
+      <a href="#faq">Questions</a>
+      <a href="/">For loan officers</a>
+    </nav>
+    <a class="btn btn-primary" href="https://calendar.app.google/QRzzaLYC4T55xYpXA">Book a build session with Michael</a>
+    <details class="mnav">
+      <summary aria-label="Open menu">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="#F4F6F9" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </summary>
+      <nav class="panel" aria-label="Mobile">
+        <a href="#depth">What opens</a>
+        <a href="#with-michael">Build sessions</a>
+        <a href="#native">Native tier</a>
+        <a href="#faq">Questions</a>
+        <a href="/">For loan officers</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" aria-label="Overview for power users">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="wrap hero-cols">
+      <div>
+        <h1>Your process is your edge. <em>Ship it.</em></h1>
+        <p class="sub">Pre-Approve Me, rebuilt around your exact process. Start from three working views, then open the hood: your workflows, your calculators, your branding, and an app nobody else has.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://calendar.app.google/QRzzaLYC4T55xYpXA">Book a build session with Michael</a>
+          <a class="btn btn-ghost" href="#depth">See what opens</a>
+        </div>
+      </div>
+      <div class="hood" aria-label="The app with its configuration opened around it">
+        <div class="cfg cfg1"><span class="k">Custom view</span><span class="v">First-time buyers: your education library, your calculators</span></div>
+        <figure class="phone"><img src="../assets/closed-view.png" alt="Post-closing view of a customized Pre-Approve Me app" width="520" height="1065"></figure>
+        <div class="cfg cfg2"><span class="k">Milestone message</span><span class="v">Realtor version says what the borrower version should not</span></div>
+        <div class="cfg cfg3"><span class="k">Your tool, embedded</span><span class="v">The calculator you built lives inside your app</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="template">
+    <div class="wrap">
+      <h2>Off-the-shelf software flattens you into everyone else's template</h2>
+      <p style="color:var(--ink-2)">Rigid point-of-sale tools cannot express the process you spent a career refining. Requests die on a vendor's roadmap. Your buyers see the same screens as everyone else's.</p>
+      <div class="two-col">
+        <p class="kicker-line">My process is my edge, and every tool makes me look like <b>the LO across town.</b></p>
+        <div class="story">
+          <p>Pre-Approve Me began life as the power-user platform: built by a loan officer who wanted this much control and could not buy it anywhere. The plug-and-play views are the new front door. The house behind it never got smaller.</p>
+          <p class="punch">Renting somebody else's playbook is not a strategy. Owning your own platform is.</p>
+          <p class="attr">Why this page exists</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="depth">
+    <div class="wrap">
+      <h2>What opens when you open the hood</h2>
+      <p style="color:var(--ink-2)">Everyone gets the three views on day one. This is what the few who go deeper actually build.</p>
+      <div class="hood-lattice">
+        <div class="hl-cell">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="7.5" height="7.5" rx="1.5" stroke="#63CF9E" stroke-width="1.5"/><rect x="12" y="2.5" width="7.5" height="7.5" rx="1.5" stroke="#63CF9E" stroke-width="1.5"/><rect x="2.5" y="12" width="7.5" height="7.5" rx="1.5" stroke="#63CF9E" stroke-width="1.5"/><rect x="12" y="12" width="7.5" height="7.5" rx="1.5" stroke="#8A93A8" stroke-width="1.5"/></svg>
+          <h3>Custom views per client type</h3>
+          <p>Veterans, first-time buyers, credit-repair clients, investors, past clients. Each sees a dashboard curated for exactly where they are, and you can hand someone the right view mid-conversation.</p>
+        </div>
+        <div class="hl-cell">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M3 6.5h16M3 11h10M3 15.5h13" stroke="#63CF9E" stroke-width="1.5" stroke-linecap="round"/><circle cx="17.5" cy="15.5" r="2" stroke="#63CF9E" stroke-width="1.5"/></svg>
+          <h3>Milestones written your way</h3>
+          <p>Your statuses, your cadence, your words. Write the realtor version and the borrower version separately, because the agent should sometimes know what the client should not worry about yet.</p>
+        </div>
+        <div class="hl-cell">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="3" y="4" width="16" height="12" rx="2" stroke="#63CF9E" stroke-width="1.5"/><path d="M8 19.5h6" stroke="#63CF9E" stroke-width="1.5" stroke-linecap="round"/><path d="M7.5 9l-2 2 2 2M14.5 9l2 2-2 2" stroke="#63CF9E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Your tools, inside your app</h3>
+          <p>The calculator you built, the guide you wrote, the video series you recorded. Embed them so your buyers find your work inside your app instead of on five scattered links.</p>
+        </div>
+        <div class="hl-cell">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="5.5" cy="11" r="2.5" stroke="#63CF9E" stroke-width="1.5"/><circle cx="16.5" cy="5.5" r="2.5" stroke="#63CF9E" stroke-width="1.5"/><circle cx="16.5" cy="16.5" r="2.5" stroke="#8A93A8" stroke-width="1.5"/><path d="M7.8 9.9l6.4-3.2M7.8 12.1l6.4 3.2" stroke="#63CF9E" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <h3>Wired into your stack</h3>
+          <p>Automation from your CRM into the app and back: new leads invited automatically, closings triggering review requests, your follow-up systems fed by real in-app behavior.</p>
+        </div>
+        <div class="hl-cell wide">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 3l6.5 3.5v5c0 3.8-2.7 6.4-6.5 7.5-3.8-1.1-6.5-3.7-6.5-7.5v-5L11 3z" stroke="#63CF9E" stroke-width="1.5" stroke-linejoin="round"/><path d="M8.5 11l1.8 1.8 3.2-3.6" stroke="#63CF9E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <h3>The realtor suite, your brand on it</h3>
+            <p>Dozens of agent-facing tools, from property intelligence to Offer Architect, co-branded with your partners. Built from real agent friction, and growing weekly.</p>
+          </div>
+        </div>
+      </div>
+      <div class="native-finale">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="6" y="2.5" width="10" height="17" rx="2.5" stroke="#63CF9E" stroke-width="1.5"/><path d="M9.5 17h3" stroke="#63CF9E" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div>
+          <h3>And at the top of the hood: an app nobody else has</h3>
+          <p>On the Native tier, your app ships to the Apple and Google app stores under your own name. Your listing, your icon on their phone, everything above included.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="with-michael">
+    <div class="wrap">
+      <h2>The deepest builds are not solo projects</h2>
+      <p style="color:var(--ink-2)">Bring your process and build it with the person who built the platform. Point-and-click covers a lot. The rest we build together, and your ideas have a way of becoming platform features.</p>
+      <div class="build-cols">
+        <div class="pull">
+          <p class="qlead">Michael, on where the realtor tool suite came from:</p>
+          <p>"About 65% of these I built because realtors expressed friction or expense in their business that I could take care of by essentially building a tool."</p>
+          <p class="why">The platform grows by listening to the people who push it hardest. Power users are not an edge case here; they set the roadmap.</p>
+        </div>
+        <figure class="ui-detail">
+          <img src="../assets/detail-tools.png" alt="Michael's own Renegade Home Mortgage app: client reviews, calculators, and homebuyer education banners" width="1020" height="450" loading="lazy">
+          <figcaption>Inside Michael's own app, under his brand</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="plan">
+    <div class="wrap">
+      <h2>The Open-Hood Plan: three steps</h2>
+      <div class="plan-steps">
+        <div class="step"><h3>Book a build session with Michael</h3><p>Bring your process, your stack, and the thing no other tool would let you do.</p></div>
+        <div class="step"><h3>Start from the three views, then open the hood</h3><p>Workflows, calculators, branding, integrations. The views are your starting scaffold, not a cage.</p></div>
+        <div class="step"><h3>Ship an app nobody else has</h3><p>On the Native tier, that means your own listing in the app stores.</p></div>
+      </div>
+      <div class="agree" aria-label="Stated plainly" id="native">
+        <span>Native tier carries a setup fee, stated plainly</span>
+        <span>Standard tier stays seat-cost only</span>
+        <span>Your clients and your data stay yours</span>
+        <span>Nothing you build gets taken away by a redesign for beginners</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="stakes" aria-label="What is at stake">
+    <div class="wrap">
+      <p>Stay on template software, and your edge never reaches the one screen your clients actually look at. <b>Your craft, flattened.</b></p>
+      <p class="soft">Or your exact process, on your buyers' phones, through the dream, the loan, and the years after closing.</p>
+    </div>
+  </section>
+
+  <section id="audiences">
+    <div class="wrap">
+      <h2>The same lifecycle, told for other seats at the table</h2>
+      <div class="router">
+        <a class="route" href="/">
+          <span class="path">outsmartrocket.com</span>
+          <h3>For loan officers</h3>
+          <p>The flagship story: one white-label app that captures the dream, streamlines the loan, and gives buyers a reason to come back.</p>
+          <span class="go">See the lifecycle<svg class="arrow-i" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="#63CF9E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="route" href="/enterprise/">
+          <span class="path">outsmartrocket.com/enterprise</span>
+          <h3>For companies</h3>
+          <p>Every LO on your roster gets a working branded app on day one, and your recruiting demo becomes the app itself.</p>
+          <span class="go">See the day-one rollout<svg class="arrow-i" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="#63CF9E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="faq">
+    <div class="wrap">
+      <h2>Asked in every build session</h2>
+      <div class="faq-list">
+        <details>
+          <summary>Do I need to be technical?</summary>
+          <div>No. A lot of the hood is point-and-click: views, milestones, templates, embeds. The deepest builds are scoped as projects we do together in build sessions, so your ambition sets the ceiling, not your comfort with configuration screens.</div>
+        </details>
+        <details>
+          <summary>What can I actually customize?</summary>
+          <div>Custom app views per client type, milestone messages written per recipient, your own tools and content embedded in the app, automation wiring into your CRM and follow-up systems, and co-branded realtor tools. Bring the thing no other tool would let you do; that is what build sessions are for.</div>
+        </details>
+        <details>
+          <summary>What is the Native tier, honestly?</summary>
+          <div>Your own branded app shipped to the Apple and Google app stores under your name. It carries a setup fee and it is a real build we do together, including the store submission process. The Standard tier is a progressive web app with seat pricing only. Pick by ambition, not pressure.</div>
+        </details>
+        <details>
+          <summary>Whose data is it?</summary>
+          <div>Yours. Your clients stay your clients, your data stays accessible to you, and we never market to your customers.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="wrap" style="position:relative">
+      <h2>Own your own platform</h2>
+      <p class="sub">Bring your process to a build session. Leave with it shipping.</p>
+      <a class="btn btn-primary" href="https://calendar.app.google/QRzzaLYC4T55xYpXA">Book a build session with Michael</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <p class="mission">Pre-Approve Me is a white-label app and marketing point of sale built for independent loan officers and small to mid-sized shops. Our mission is to ensure Realtors refer you and clients come back to you for their mortgage needs for the next 30 years. We are here to help you outsmart Rocket.</p>
+      <nav class="flinks" aria-label="Footer">
+        <a href="/">For loan officers</a>
+        <a href="/enterprise/">For companies</a>
+        <a href="#depth">What opens</a>
+        <a href="https://calendar.app.google/QRzzaLYC4T55xYpXA">Book a build session with Michael</a>
+      </nav>
+    </div>
+    <div class="row">
+      <span>© 2026 Pre-Approve Me</span>
+      <span class="sample-note">Design sample: part of the outsmartrocket.com rebuild</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

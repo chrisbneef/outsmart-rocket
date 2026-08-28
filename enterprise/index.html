@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Companies | Outsmart Rocket</title>
+<meta name="description" content="Pre-Approve Me for mortgage companies: every loan officer gets a branded app that works on day one, company settings waterfall to every seat, and the recruiting demo becomes the app itself.">
+<link rel="canonical" href="https://outsmartrocket.com/enterprise/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="For Companies | Outsmart Rocket">
+<meta property="og:description" content="One branded mortgage app for every loan officer on your roster. Working on day one, and the recruiting demo becomes the app itself.">
+<meta property="og:url" content="https://outsmartrocket.com/enterprise/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Lato:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Why do loan officers actually use Pre-Approve Me?", "acceptedAnswer": {"@type": "Answer", "text": "Each of the three ready-made views maps to a moment a loan officer already lives in: the lead, the loan, and the years after closing. There is nothing to learn before there is something to gain."}},
+    {"@type": "Question", "name": "Who does the setup for a company rollout?", "acceptedAnswer": {"@type": "Answer", "text": "Pre-Approve Me configures the app under the company's brand and switches on the core integrations live on the kickoff call. Company-level settings waterfall down to every branch, DBA, and seat, and training for producing loan officers is led by the founder's team."}},
+    {"@type": "Question", "name": "How does company pricing work?", "acceptedAnswer": {"@type": "Answer", "text": "The Standard tier is priced per seat with no setup fee, so it scales with the roster. The Native tier ships the company's own branded app to the Apple and Google app stores and carries a setup fee. Exact numbers are covered on the walkthrough."}},
+    {"@type": "Question", "name": "Can branches and DBAs have their own branding?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A parent company can run branded sub-companies for branches and DBAs, with visibility across all of them, and company settings cascade down unless a seat needs a specific override."}}
+  ]
+}
+</script>
+<style>
+  :root{
+    --ground:#0B0D12;
+    --band:#0A1628;
+    --card:#12161F;
+    --card-2:#171C27;
+    --line:rgba(214,222,236,.10);
+    --line-2:rgba(214,222,236,.16);
+    --ink:#F4F6F9;
+    --ink-2:#B7BFCE;
+    --ink-3:#8A93A8;
+    --green:#44C58B;
+    --green-bright:#63CF9E;
+    --green-deep:#0E3A26;
+    --green-ink:#07130D;
+    --orange:#FF6C0A;
+    --orange-bright:#FF8B3D;
+    --grid-line:rgba(199,210,228,.055);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    background:var(--ground);color:var(--ink);
+    font-family:'Lato',system-ui,-apple-system,sans-serif;
+    font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--green);color:var(--green-ink)}
+  ::-webkit-scrollbar{width:12px;background:var(--ground)}
+  ::-webkit-scrollbar-thumb{background:#232A38;border-radius:6px;border:3px solid var(--ground)}
+  a{color:var(--green-bright);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+  :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:2px}
+  h1,h2,h3{font-family:'Archivo',sans-serif;letter-spacing:-.025em;text-wrap:balance}
+  h2{font-size:clamp(1.75rem,3.6vw,2.6rem);font-weight:800;line-height:1.08;margin-bottom:1rem}
+  h3{font-size:1.15rem;font-weight:700;letter-spacing:-.01em}
+  p{max-width:62ch}
+  .wrap{max-width:74rem;margin:0 auto;padding:0 1.5rem}
+  section{padding:5.5rem 0}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:1rem;letter-spacing:-.005em;
+    border-radius:10px;padding:.85rem 1.5rem;text-decoration:none;
+    transition:transform .18s cubic-bezier(.2,.8,.3,1), background .18s ease, border-color .18s ease;
+  }
+  .btn-primary{background:var(--green);color:var(--green-ink)}
+  .btn-primary:hover{background:var(--green-bright);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
+  .btn-ghost:hover{border-color:rgba(214,222,236,.34)}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(11,13,18,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:2rem;height:4.25rem}
+  .wordmark{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.08rem;letter-spacing:-.02em;color:var(--ink);text-decoration:none;white-space:nowrap}
+  .wordmark b{color:var(--green-bright)}
+  .nav-links{display:flex;gap:1.6rem;margin-left:auto}
+  .nav-links a{color:var(--ink-2);text-decoration:none;font-size:.95rem}
+  .nav-links a:hover{color:var(--ink)}
+  .nav .btn{padding:.55rem 1.05rem;font-size:.9rem}
+  .mnav{display:none;position:relative}
+  .mnav summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line-2);border-radius:8px}
+  .mnav summary::-webkit-details-marker{display:none}
+  .mnav[open] summary{border-color:var(--green)}
+  .mnav .panel{position:absolute;right:0;top:46px;z-index:60;background:var(--card-2);border:1px solid var(--line-2);border-radius:12px;padding:.6rem;min-width:230px;display:flex;flex-direction:column;box-shadow:0 18px 40px rgba(0,0,0,.5)}
+  .mnav .panel a{color:var(--ink);text-decoration:none;padding:.6rem .8rem;border-radius:8px;font-size:.95rem}
+  .mnav .panel a:hover{background:rgba(214,222,236,.06)}
+  @media(max-width:900px){.nav-links{display:none}.nav .btn{margin-left:auto}.mnav{display:block}}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:5rem 0 5rem}
+  .hero-grid{position:absolute;inset:0;pointer-events:none;
+    background-image:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 48px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 48px);
+    -webkit-mask-image:radial-gradient(1100px 780px at 60% 30%, #000 20%, transparent 78%);
+            mask-image:radial-gradient(1100px 780px at 60% 30%, #000 20%, transparent 78%);
+  }
+  .hero-glow{position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(720px 520px at 76% 40%, rgba(68,197,139,.10), transparent 68%)}
+  .hero-cols{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center;position:relative}
+  @media(max-width:900px){.hero-cols{grid-template-columns:1fr;gap:3rem}}
+  .hero h1{font-size:clamp(2.3rem,4.6vw,3.5rem);font-weight:800;line-height:1.04;margin-bottom:1.3rem}
+  .hero h1 em{font-style:normal;position:relative;white-space:nowrap}
+  .hero h1 em::after{content:"";position:absolute;left:1px;right:1px;bottom:-.09em;height:.075em;background:var(--green);border-radius:3px}
+  .hero .sub{color:var(--ink-2);font-size:1.14rem;margin-bottom:2rem}
+  .hero-ctas{display:flex;gap:.9rem;flex-wrap:wrap}
+
+  /* waterfall diagram */
+  .waterfall{display:flex;flex-direction:column;align-items:center;gap:0;position:relative}
+  .wf-card{background:var(--card);border:1px solid var(--line-2);border-radius:12px;padding:1rem 1.3rem;text-align:center;position:relative;z-index:1}
+  .wf-card .t{font-family:'Archivo',sans-serif;font-weight:700;font-size:1rem}
+  .wf-card .d{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-top:.25rem}
+  .wf-top{border-color:rgba(68,197,139,.45);background:linear-gradient(180deg, rgba(14,58,38,.4), var(--card) 70%)}
+  .wf-stem{width:1px;height:26px;background:var(--line-2)}
+  .wf-branches{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;width:100%;position:relative;padding-top:26px}
+  .wf-branches::before{content:"";position:absolute;top:0;left:16.66%;right:16.66%;height:1px;background:var(--line-2)}
+  .wf-branch{display:flex;flex-direction:column;align-items:center;position:relative}
+  .wf-branch::before{content:"";position:absolute;top:-26px;width:1px;height:26px;background:var(--line-2)}
+  .wf-branch .wf-card{width:100%}
+  .seats{display:flex;gap:.4rem;margin-top:.8rem}
+  .seat{width:26px;height:26px;border-radius:50%;background:var(--card-2);border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center}
+  .seat svg{display:block}
+  .wf-cap{font-size:.85rem;color:var(--ink-3);text-align:center;margin-top:1.6rem;max-width:36ch}
+
+  /* bands & shared */
+  .band{background:var(--band);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative}
+  .band > .wrap{position:relative}
+  .band::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 48px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 48px);
+    -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.3) 55%, transparent 96%);
+            mask-image:linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.3) 55%, transparent 96%);
+  }
+  .two-col{display:grid;grid-template-columns:1fr 1.2fr;gap:3.2rem;align-items:start;margin-top:2.4rem}
+  @media(max-width:860px){.two-col{grid-template-columns:1fr;gap:2rem}}
+  .kicker-line{font-size:1.3rem;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-.015em;color:var(--ink);max-width:36ch}
+  .kicker-line b{color:var(--orange-bright);font-weight:700}
+  .story{border-left:1px solid var(--green);padding:.35rem 0 .35rem 1.6rem;max-width:56ch}
+  .story p{color:var(--ink-2);font-size:1.08rem;margin-bottom:.9rem}
+  .story .punch{color:var(--ink);font-weight:700;font-family:'Archivo',sans-serif;font-size:1.15rem;letter-spacing:-.01em}
+  .story .attr{font-size:.88rem;color:var(--ink-3)}
+
+  .views-row{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:2.6rem}
+  @media(max-width:860px){.views-row{grid-template-columns:1fr;gap:2.2rem}}
+  .mini-views{display:flex;flex-direction:column;gap:1rem}
+  .mini-view{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.15rem 1.3rem;display:flex;gap:1rem;align-items:baseline}
+  .mini-view .n{font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600;font-size:.78rem;letter-spacing:.14em;color:var(--green-bright);flex:none}
+  .mini-view.hot .n{color:var(--orange-bright)}
+  .mini-view h3{margin-bottom:.2rem}
+  .mini-view p{font-size:.93rem;color:var(--ink-2)}
+  .phone{width:min(280px,72%);border-radius:34px;background:#05070B;padding:7px;position:relative;
+    border:1px solid rgba(214,222,236,.14);
+    box-shadow:0 42px 80px rgba(0,0,0,.6), 0 12px 28px rgba(0,0,0,.45);margin:0 auto}
+  .phone img{display:block;width:100%;height:auto;border-radius:27px}
+  .phone::after{content:"";position:absolute;inset:7px;border-radius:27px;pointer-events:none;
+    background:linear-gradient(116deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.02) 30%, transparent 50%)}
+
+  .recruit-cols{display:grid;grid-template-columns:1.15fr 1fr;gap:3rem;align-items:center;margin-top:.6rem}
+  @media(max-width:860px){.recruit-cols{grid-template-columns:1fr;gap:2.2rem}}
+  .shot-cap{font-size:.85rem;color:var(--ink-3);text-align:center;margin:1rem auto 0;max-width:34ch}
+  .pull{max-width:44rem;margin:2.4rem 0 0;padding:1.4rem 1.6rem;background:var(--card);border:1px solid var(--line);border-radius:14px}
+  .pull p{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:-.015em;line-height:1.35;color:var(--ink)}
+  .pull .why{font-family:'Lato',sans-serif;font-weight:400;font-size:.98rem;color:var(--ink-2);margin-top:.8rem}
+
+  .plan-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.4rem;counter-reset:step}
+  @media(max-width:820px){.plan-steps{grid-template-columns:1fr}}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.6rem 1.4rem;counter-increment:step}
+  .step::before{content:counter(step,decimal-leading-zero);
+    font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600;font-size:.8rem;letter-spacing:.14em;color:var(--green-bright);display:block;margin-bottom:1rem}
+  .step h3{margin-bottom:.55rem}
+  .step p{font-size:.95rem;color:var(--ink-2)}
+  .agree{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+  .agree span{font-size:.85rem;color:var(--ink-2);border:1px solid var(--line-2);border-radius:999px;padding:.4rem .95rem;background:var(--card)}
+  .honesty{margin-top:2.2rem;max-width:56ch}
+  .honesty p{color:var(--ink-2);font-size:.98rem}
+
+  .stakes{padding:3.6rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg, rgba(255,108,10,.045), transparent 70%)}
+  .stakes .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:3.2rem;align-items:end}
+  @media(max-width:860px){.stakes .wrap{grid-template-columns:1fr;gap:1.2rem}}
+  .stakes p{font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(1.25rem,2.4vw,1.7rem);letter-spacing:-.015em;line-height:1.3;max-width:40ch}
+  .stakes p b{color:var(--orange-bright);font-weight:700}
+  .stakes .soft{font-family:'Lato',sans-serif;font-weight:400;font-size:1rem;color:var(--ink-3);max-width:52ch;padding-bottom:.2rem}
+
+  .router{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:2.4rem}
+  @media(max-width:820px){.router{grid-template-columns:1fr}}
+  .route{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.7rem 1.5rem;text-decoration:none;color:var(--ink);
+    transition:border-color .18s ease, transform .18s cubic-bezier(.2,.8,.3,1)}
+  .route:hover{border-color:rgba(68,197,139,.45);transform:translateY(-2px)}
+  .route .path{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.72rem;letter-spacing:.12em;color:var(--ink-3);display:block;margin-bottom:.9rem}
+  .route h3{margin-bottom:.5rem}
+  .route p{color:var(--ink-2);font-size:.95rem;margin-bottom:1.1rem}
+  .route .go{color:var(--green-bright);font-weight:700;font-size:.95rem;display:inline-flex;align-items:center}
+  .route:hover .go{text-decoration:underline;text-underline-offset:3px}
+  .arrow-i{display:inline-block;vertical-align:-.12em;margin-left:.3rem;transition:transform .18s cubic-bezier(.2,.8,.3,1)}
+  .route:hover .arrow-i{transform:translateX(3px)}
+
+  .faq-list{max-width:46rem}
+  .faq-list details{border-bottom:1px solid var(--line)}
+  .faq-list details summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 0;font-family:'Archivo',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+  .faq-list details summary::-webkit-details-marker{display:none}
+  .faq-list details summary:hover{color:var(--green-bright)}
+  .faq-list details summary::after{content:"";flex:none;width:14px;height:14px;transition:transform .18s ease;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M7 2.5v9M2.5 7h9' stroke='%2363CF9E' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center/14px no-repeat}
+  .faq-list details[open] summary::after{transform:rotate(45deg)}
+  .faq-list details div{padding:0 0 1.25rem;color:var(--ink-2);max-width:60ch}
+
+  .closing{position:relative;overflow:hidden;text-align:center;padding:7rem 0 6rem}
+  .closing .hero-grid{-webkit-mask-image:radial-gradient(900px 600px at 50% 55%, #000 15%, transparent 75%);mask-image:radial-gradient(900px 600px at 50% 55%, #000 15%, transparent 75%)}
+  .closing h2{font-size:clamp(2rem,4.6vw,3.2rem);max-width:20ch;margin:0 auto 1.1rem}
+  .closing .sub{color:var(--ink-2);max-width:46ch;margin:0 auto 2.2rem}
+  .closing .hero-glow{background:radial-gradient(760px 520px at 50% 70%, rgba(68,197,139,.12), transparent 68%)}
+
+  footer{border-top:1px solid var(--line);padding:2.6rem 0 3rem;font-size:.9rem;color:var(--ink-3)}
+  footer .cols{display:grid;grid-template-columns:1.5fr 1fr;gap:2.5rem;align-items:start;margin-bottom:1.8rem}
+  @media(max-width:820px){footer .cols{grid-template-columns:1fr;gap:1.6rem}}
+  footer .mission{max-width:62ch}
+  footer .flinks{display:flex;flex-direction:column;gap:.55rem;justify-self:end;text-align:right}
+  @media(max-width:820px){footer .flinks{justify-self:start;text-align:left}}
+  footer .row{display:flex;flex-wrap:wrap;gap:.8rem 1.8rem;align-items:center;justify-content:space-between}
+  footer a{color:var(--ink-3)}
+  .sample-note{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);border:1px dashed var(--line-2);border-radius:8px;padding:.55rem .9rem;display:inline-block}
+
+  @keyframes rise{from{opacity:.001;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  .hero h1{animation:rise .7s cubic-bezier(.2,.8,.3,1) both}
+  .hero .sub{animation:rise .7s .08s cubic-bezier(.2,.8,.3,1) both}
+  .hero-ctas{animation:rise .7s .16s cubic-bezier(.2,.8,.3,1) both}
+  .waterfall{animation:rise .8s .22s cubic-bezier(.2,.8,.3,1) both}
+
+  @media(max-width:700px){
+    section{padding:4rem 0}
+    .hero{padding:3rem 0 4rem}
+  }
+  @media(max-width:520px){
+    .nav{gap:.6rem}
+    .nav .btn{font-size:.72rem;padding:.45rem .6rem;border-radius:8px;white-space:nowrap}
+    .wordmark{font-size:.92rem}
+  }
+</style>
+</head>
+<body>
+<!--
+THESIS: the company page argues adoption, not features; the hero shows the
+mechanic that makes a rollout real (settings waterfalling from company to
+branch to seat), and the recruiting section reframes the app as the demo.
+OWN-WORLD: inherits DESIGN.md (near-black grounds, green action, orange
+reserved for stakes, drafting grid, Archivo/Lato/Plex Mono). New component:
+waterfall diagram in card grammar.
+STORY: a broker burned by shelf-ware sees why this one gets used, sees the
+recruiting angle, gets an honest rollout picture, books a company walkthrough.
+FIRST VIEWPORT: left copy (headline, sub, green CTA + ghost), right waterfall
+diagram (company card, three branch cards, seat dots).
+FORM: sibling surface of home-sample.html in the established world; no roll.
+Code-led. Copy source: storybrand/02-brandscript-brokerage.md + field-notes.md.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the
+finish review, the verdict, DESIGN.md, and every shipping raster carrying its
+provenance.
+-->
+
+<header>
+  <div class="wrap nav">
+    <a class="wordmark" href="/">Pre-Approve<b>Me</b></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#adoption">Why LOs use it</a>
+      <a href="#recruiting">Recruiting</a>
+      <a href="#rollout">The rollout</a>
+      <a href="#faq">Questions</a>
+      <a href="/">For loan officers</a>
+    </nav>
+    <a class="btn btn-primary" href="https://calendar.app.google/QRzzaLYC4T55xYpXA">Book a company walkthrough</a>
+    <details class="mnav">
+      <summary aria-label="Open menu">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="#F4F6F9" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </summary>
+      <nav class="panel" aria-label="Mobile">
+        <a href="#adoption">Why LOs use it</a>
+        <a href="#recruiting">Recruiting</a>
+        <a href="#rollout">The rollout</a>
+        <a href="#faq">Questions</a>
+        <a href="/">For loan officers</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" aria-label="Overview for companies">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="wrap hero-cols">
+      <div>
+        <h1>The tech you buy should be <em>the tech they use.</em></h1>
+        <p class="sub">One branded mortgage app for every loan officer on your roster. It works on day one, and buyers and agents keep pulling your LOs back into it.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://calendar.app.google/QRzzaLYC4T55xYpXA">Book a company walkthrough</a>
+          <a class="btn btn-ghost" href="#rollout">See the day-one rollout</a>
+        </div>
+      </div>
+      <div class="waterfall" aria-label="Company settings waterfall to every branch and seat">
+        <div class="wf-card wf-top"><div class="t">Your company</div><div class="d">Brand · settings · tools</div></div>
+        <div class="wf-stem"></div>
+        <div class="wf-branches">
+          <div class="wf-branch">
+            <div class="wf-card"><div class="t">Branch</div><div class="d">Own branding</div></div>
+            <div class="seats">
+              <span class="seat"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="4" r="2.2" stroke="#8A93A8" stroke-width="1.3"/><path d="M2 10.5c.7-1.9 2.2-2.8 4-2.8s3.3.9 4 2.8" stroke="#8A93A8" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+              <span class="seat"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="4" r="2.2" stroke="#8A93A8" stroke-width="1.3"/><path d="M2 10.5c.7-1.9 2.2-2.8 4-2.8s3.3.9 4 2.8" stroke="#8A93A8" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+              <span class="seat"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="4" r="2.2" stroke="#8A93A8" stroke-width="1.3"/><path d="M2 10.5c.7-1.9 2.2-2.8 4-2.8s3.3.9 4 2.8" stroke="#8A93A8" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+            </div>
+          </div>
+          <div class="wf-branch">
+            <div class="wf-card"><div class="t">DBA</div><div class="d">Own branding</div></div>
+            <div class="seats">
+              <span class="seat"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="4" r="2.2" stroke="#8A93A8" stroke-width="1.3"/><path d="M2 10.5c.7-1.9 2.2-2.8 4-2.8s3.3.9 4 2.8" stroke="#8A93A8" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+              <span class="seat"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="4" r="2.2" stroke="#8A93A8" stroke-width="1.3"/><path d="M2 10.5c.7-1.9 2.2-2.8 4-2.8s3.3.9 4 2.8" stroke="#8A93A8" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+            </div>
+          </div>
+          <div class="wf-branch">
+            <div class="wf-card"><div class="t">Branch</div><div class="d">Own branding</div></div>
+            <div class="seats">
+              <span class="seat"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="4" r="2.2" stroke="#8A93A8" stroke-width="1.3"/><path d="M2 10.5c.7-1.9 2.2-2.8 4-2.8s3.3.9 4 2.8" stroke="#8A93A8" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+              <span class="seat"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="4" r="2.2" stroke="#8A93A8" stroke-width="1.3"/><path d="M2 10.5c.7-1.9 2.2-2.8 4-2.8s3.3.9 4 2.8" stroke="#8A93A8" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+              <span class="seat"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="4" r="2.2" stroke="#8A93A8" stroke-width="1.3"/><path d="M2 10.5c.7-1.9 2.2-2.8 4-2.8s3.3.9 4 2.8" stroke="#8A93A8" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+            </div>
+          </div>
+        </div>
+        <p class="wf-cap">Company settings waterfall down to every branch, DBA, and seat. Change it once, and every loan officer has it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="shelfware">
+    <div class="wrap">
+      <h2>You have bought software like this before. It died in a drawer.</h2>
+      <p style="color:var(--ink-2)">It demoed beautifully. It invoiced monthly. And by week three, nobody was logging in. The villain is not your loan officers. The villain is software so complex that not using it was the rational choice.</p>
+      <div class="two-col">
+        <p class="kicker-line">Nobody should have to defend a line item <b>their own people never open.</b></p>
+        <div class="story">
+          <p>We built the power-user platform first. We watched who used it and who did not. So we rebuilt the front door: three plug-and-play views that work the day they ship. The depth is still underneath for the LOs who want it.</p>
+          <p class="punch">Three views that work on day one. A whole platform underneath when you want it.</p>
+          <p class="attr">Why the plug-and-play views exist</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="adoption">
+    <div class="wrap">
+      <h2>Why loan officers actually open this one</h2>
+      <p style="color:var(--ink-2)">Each view maps to a moment your LOs already live in. There is nothing to learn before there is something to gain.</p>
+      <div class="views-row">
+        <div class="mini-views">
+          <div class="mini-view"><span class="n">01</span><div><h3>Lead view</h3><p>Buyers browse listings with real payments tied to their real finances, and issue their own pre-approval letters on your LO's letterhead.</p></div></div>
+          <div class="mini-view"><span class="n">02</span><div><h3>Loan view</h3><p>Live milestones everyone can see. The "any update?" calls stop reaching your branch managers.</p></div></div>
+          <div class="mini-view hot"><span class="n">03</span><div><h3>Post-closing</h3><p>Buyers keep watching their equity and home value in the place that carries your company's name. The next transaction starts where they already are.</p></div></div>
+        </div>
+        <figure class="phone"><img src="../assets/loan-view.png" alt="Loan view: live milestone tracking every buyer and agent can see" width="520" height="1065" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="recruiting">
+    <div class="wrap">
+      <h2>The recruiting demo that closes</h2>
+      <p style="color:var(--ink-2)">Loan officers do not join a shop for efficiency. They join for the chance to earn more. Show a candidate the app their buyers and agents would carry, with your company's name on it, and the conversation changes.</p>
+      <div class="recruit-cols">
+        <div class="pull">
+          <p>"Here is the branded app you get on day one."</p>
+          <p class="why">The recruiting line that beats a feature list. The view that convinces a candidate is not the admin console. It is the co-branded experience their agents and buyers would live in, because that is what wins them more business.</p>
+        </div>
+        <div>
+          <figure class="phone"><img src="../assets/closed-view.png" alt="The co-branded client app a recruit would carry: home value, equity, and referral tools under the company's brand" width="520" height="1065" loading="lazy"></figure>
+          <p class="shot-cap">What the candidate sees: the app their buyers and agents would live in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rollout">
+    <div class="wrap">
+      <h2>The Day-One Rollout: three steps, then a guided climb</h2>
+      <div class="plan-steps">
+        <div class="step"><h3>Book a company walkthrough</h3><p>A working session with the founder's team, mapped to your roster, your branches, and your stack.</p></div>
+        <div class="step"><h3>We configure the three views under your brand</h3><p>Every LO gets a working app on day one. Core integrations get switched on live, on the call.</p></div>
+        <div class="step"><h3>Roll out per seat, into the recruiting deck</h3><p>Add seats as you hire. The demo for candidates is the same app your LOs use every day.</p></div>
+      </div>
+      <div class="agree" aria-label="Our commitments">
+        <span>Seat pricing on Standard. No setup fee.</span>
+        <span>Company settings waterfall to every seat</span>
+        <span>Your brand, your branches, your DBAs</span>
+        <span>Founder-led training, not a ticket queue</span>
+      </div>
+      <div class="honesty">
+        <p>The honest version: a working app on day one, then a guided rollout to full adoption. Kickoff with your admins, training for your producing LOs, and workflow planning with your team. Bring your LOS and CRM. Some connect with full two-way sync, others through a simple file import, and we map yours on the walkthrough.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stakes" aria-label="What is at stake">
+    <div class="wrap">
+      <p>Your recruiter demos a login screen while the shop across town demos a branded app on a candidate's own phone. <b>Or you are the shop across town.</b></p>
+      <p class="soft">Seats that get used, buyers who stay in your company's ecosystem for years after closing, and a renewal you will not have to defend.</p>
+    </div>
+  </section>
+
+  <section id="audiences">
+    <div class="wrap">
+      <h2>The same lifecycle, told for other seats at the table</h2>
+      <div class="router">
+        <a class="route" href="/">
+          <span class="path">outsmartrocket.com</span>
+          <h3>For loan officers</h3>
+          <p>The flagship story: one white-label app that captures the dream, streamlines the loan, and gives buyers a reason to come back.</p>
+          <span class="go">See the lifecycle<svg class="arrow-i" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="#63CF9E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="route" href="/power-user/">
+          <span class="path">outsmartrocket.com/power-user</span>
+          <h3>For power users</h3>
+          <p>For the LOs on your roster whose process is their edge: custom views, custom workflows, and an app nobody else has.</p>
+          <span class="go">Open the hood<svg class="arrow-i" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="#63CF9E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="faq">
+    <div class="wrap">
+      <h2>Asked on every walkthrough</h2>
+      <div class="faq-list">
+        <details>
+          <summary>Why will my loan officers actually use it?</summary>
+          <div>Because the three views map to moments they already live in, and because their buyers and agents pull them back into it. Adoption is a habit problem, not a feature problem, and the rollout is built around that: working app first, guided training second, depth only when they want it.</div>
+        </details>
+        <details>
+          <summary>Who does the setup?</summary>
+          <div>We do the configuration under your brand and switch on the core integrations live on the kickoff call. Your admins make decisions once at the company level, and the settings waterfall to every seat. Your producing LOs get founder-led training sessions, not a documentation link.</div>
+        </details>
+        <details>
+          <summary>How does pricing work for a company?</summary>
+          <div>Standard is priced per seat with no setup fee, so it scales with your roster. Native ships your company's own branded app to the Apple and Google app stores and carries a setup fee. We put exact numbers on the table during the walkthrough, mapped to your seat count.</div>
+        </details>
+        <details>
+          <summary>Can branches and DBAs carry their own branding?</summary>
+          <div>Yes. A parent company can run branded sub-companies for branches and DBAs, keep visibility across all of them, and still manage settings from the top.</div>
+        </details>
+        <details>
+          <summary>What about our LOS and CRM?</summary>
+          <div>Bring them. Some systems connect with full two-way sync, others work through a simple secure file import, and lead flows can be automated either way. We map your exact stack on the walkthrough before you commit.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="wrap" style="position:relative">
+      <h2>Be the shop whose tools get used</h2>
+      <p class="sub">One walkthrough, mapped to your roster and your stack. Bring your hardest adoption question.</p>
+      <a class="btn btn-primary" href="https://calendar.app.google/QRzzaLYC4T55xYpXA">Book a company walkthrough</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <p class="mission">Pre-Approve Me is a white-label app and marketing point of sale built for independent loan officers and small to mid-sized shops. Our mission is to ensure Realtors refer you and clients come back to you for their mortgage needs for the next 30 years. We are here to help you outsmart Rocket.</p>
+      <nav class="flinks" aria-label="Footer">
+        <a href="/">For loan officers</a>
+        <a href="/power-user/">For power users</a>
+        <a href="#rollout">The rollout</a>
+        <a href="https://calendar.app.google/QRzzaLYC4T55xYpXA">Book a company walkthrough</a>
+      </nav>
+    </div>
+    <div class="row">
+      <span>© 2026 Pre-Approve Me</span>
+      <span class="sample-note">Design sample: part of the outsmartrocket.com rebuild</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
