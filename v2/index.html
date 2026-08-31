@@ -161,25 +161,24 @@
   }
 
   /* ---------- problem ---------- */
-  .before-after{display:grid;grid-template-columns:1fr auto 1fr;gap:2.5rem;align-items:center;margin:3.2rem auto 0;max-width:60rem}
-  @media(max-width:820px){.before-after{grid-template-columns:1fr;gap:1.6rem;justify-items:center}}
-  .scatter{display:flex;flex-wrap:wrap;gap:.7rem;max-width:22rem;justify-self:end}
-  @media(max-width:820px){.scatter{justify-self:center;justify-content:center}}
-  .scatter span{
-    background:var(--card);border:1px solid var(--green-line);border-radius:999px;padding:.5rem 1rem;
-    font-size:.95rem;color:var(--green);
-  }
-  .scatter span.o{border-color:var(--orange-line);color:var(--orange)}
+  .before-after{display:grid;grid-template-columns:1.2fr auto .8fr;gap:2.8rem;align-items:center;margin:3.6rem auto 0;max-width:66rem}
+  @media(max-width:860px){.before-after{grid-template-columns:1fr;gap:2rem;justify-items:center}}
+  .tool-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;width:100%;max-width:34rem;justify-self:end}
+  @media(max-width:860px){.tool-cards{justify-self:center}}
+  .tool-card{background:var(--card);border:1px solid var(--green-line);border-radius:12px;overflow:hidden;
+    box-shadow:0 20px 48px rgba(0,0,0,.5)}
+  .tool-card.o{border-color:var(--orange-line)}
+  .tool-card:nth-child(odd){transform:rotate(-1.4deg)}
+  .tool-card:nth-child(even){transform:rotate(1.3deg)}
+  .tc-shot{overflow:hidden;border-bottom:1px solid var(--line)}
+  .tc-shot img{display:block;width:100%;height:auto}
+  .tool-card>span{display:block;padding:.55rem .95rem;font-family:'Archivo',sans-serif;font-weight:700;
+    font-size:.88rem;color:var(--green)}
+  .tool-card.o>span{color:var(--orange)}
   .ba-arrow{color:var(--ink-3)}
-  @media(max-width:820px){.ba-arrow{transform:rotate(90deg)}}
+  @media(max-width:860px){.ba-arrow{transform:rotate(90deg)}}
   .after-app{display:flex;flex-direction:column;align-items:center;gap:1.2rem}
-  .after-app .phone{width:250px;transform:rotate(3.5deg)}
-  .after-shot{position:relative}
-  .zoom-chip{position:absolute;left:-46%;bottom:10%;width:min(280px,52vw);transform:rotate(-4deg);
-    border:2px solid var(--green);border-radius:12px;overflow:hidden;background:var(--card);
-    box-shadow:0 22px 50px rgba(0,0,0,.55)}
-  .zoom-chip img{display:block;width:100%;height:auto}
-  @media(max-width:820px){.zoom-chip{left:-14%;width:min(240px,56vw)}}
+  .after-app .phone{width:255px;transform:rotate(3.5deg)}
   .after-cap{font-family:'Archivo',sans-serif;font-weight:700;font-size:1rem;color:var(--ink)}
 
   /* ---------- rocket conveyor ---------- */
@@ -464,20 +463,17 @@ provenance.
       <p style="margin-top:1rem;color:var(--ink)">Your client should not need five different tools to work with you.</p>
       </div>
       <div class="before-after">
-        <div class="scatter" aria-label="Disconnected tools">
-          <span class="o">Home Search</span>
-          <span>Calculator</span>
-          <span>Application</span>
-          <span>Loan Updates</span>
-          <span class="o">Realtor Tools</span>
-          <span class="o">Homeowner Tools</span>
+        <div class="tool-cards" aria-label="The tools clients get sent to, scattered">
+          <div class="tool-card o"><div class="tc-shot"><img src="../assets/tc-search.png" alt="In-app home search: Find Your Perfect Home" width="470" height="97" loading="lazy"></div><span>Home Search</span></div>
+          <div class="tool-card"><div class="tc-shot"><img src="../assets/tc-calc.png" alt="In-app calculators tile" width="660" height="150" loading="lazy"></div><span>Calculator</span></div>
+          <div class="tool-card"><div class="tc-shot"><img src="../assets/tc-apply.png" alt="Apply for Loan button in the app" width="470" height="120" loading="lazy"></div><span>Application</span></div>
+          <div class="tool-card"><div class="tc-shot"><img src="../assets/tc-progress.png" alt="Loan progress bar: 69 percent to funded" width="600" height="110" loading="lazy"></div><span>Loan Updates</span></div>
+          <div class="tool-card o"><div class="tc-shot"><img src="../assets/tc-realtor.png" alt="Co-branded listing agent and loan officer contact block" width="600" height="120" loading="lazy"></div><span>Realtor Tools</span></div>
+          <div class="tool-card o"><div class="tc-shot"><img src="../assets/tc-homeowner.png" alt="Home value report inside the app" width="470" height="135" loading="lazy"></div><span>Homeowner Tools</span></div>
         </div>
         <svg class="ba-arrow" width="40" height="24" viewBox="0 0 40 24" fill="none" aria-hidden="true"><path d="M2 12h32M26 4l8 8-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <div class="after-app">
-          <div class="after-shot">
-            <figure class="phone"><img src="../assets/closed-view.png" alt="One Pre-Approve Me app holding the whole relationship" width="520" height="1065" loading="lazy"></figure>
-            <figure class="zoom-chip"><img src="../assets/detail-tools.png" alt="Zoomed in on the app's tool tiles: client reviews, calculators, homebuyer education" width="1020" height="450" loading="lazy"></figure>
-          </div>
+          <figure class="phone"><img src="../assets/loan-view.png" alt="One Pre-Approve Me app holding the whole relationship: payment, progress, search, and messages in one screen" width="520" height="1065" loading="lazy"></figure>
           <p class="after-cap">One app. One client relationship.</p>
         </div>
       </div>
@@ -739,7 +735,7 @@ provenance.
           </ul>
         </div>
         <div>
-          <figure class="phone"><img src="../assets/loan-view.png" alt="The loan view: payment, progress to funded, conditions, and messages in one screen" width="520" height="1065" loading="lazy"></figure>
+          <figure class="phone"><img src="../assets/lead-view.png" alt="The lead view: calculators, homebuyer education, home search, and apply, all under the loan officer's brand" width="520" height="1065" loading="lazy"></figure>
         </div>
       </div>
     </div>
