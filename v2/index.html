@@ -131,12 +131,11 @@
     position:relative;
   }
   .phone img{display:block;width:100%;height:auto;border-radius:28px}
-  .life-strip{
-    display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;justify-content:center;
-    font-family:'Archivo',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;
-    color:var(--ink-3);
+  .exhibit-labels{
+    display:grid;grid-template-columns:1fr 1fr 1fr;width:min(1080px,100%);margin:0 auto;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink-3);text-align:center;
   }
-  .life-strip svg{display:block}
 
   /* ---------- problem ---------- */
   .before-after{display:grid;grid-template-columns:1fr auto 1fr;gap:2.5rem;align-items:center;margin:3.2rem auto 0;max-width:60rem}
@@ -335,17 +334,9 @@ provenance.
       </div>
       <div class="hero-shot">
         <img class="exhibit" src="../assets/v2-exhibit.png" alt="The Pre-Approve Me app's three views in a demonstration account: home search and calculators, live loan progress, and the homeowner view" width="2080" height="1116">
-        <p class="life-strip">
-          <span>SEARCH</span>
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>PAYMENT</span>
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>PRE-APPROVAL</span>
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>LOAN</span>
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>HOMEOWNER</span>
-        </p>
+        <div class="exhibit-labels" aria-label="The three views: dream, loan, homeowner">
+          <span>Dream</span><span>Loan</span><span>Homeowner</span>
+        </div>
       </div>
     </div>
   </section>
