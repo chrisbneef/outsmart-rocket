@@ -131,10 +131,26 @@
     position:relative;
   }
   .phone img{display:block;width:100%;height:auto;border-radius:28px}
-  .exhibit-labels{
-    display:grid;grid-template-columns:1fr 1fr 1fr;width:min(1080px,100%);margin:0 auto;
-    font-family:'Archivo',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.22em;
-    text-transform:uppercase;color:var(--ink-3);text-align:center;
+  .journey-hero{width:min(1080px,100%);margin:0 auto}
+  .jh-rail{display:grid;grid-template-columns:1fr 1fr 1fr;position:relative;height:16px;align-items:center;margin-bottom:.9rem}
+  .jh-rail::before{content:"";position:absolute;left:16.6%;right:16.6%;top:50%;height:2px;transform:translateY(-50%);
+    background:linear-gradient(90deg,var(--green) 0%,var(--green) 62%,var(--orange) 100%)}
+  .jh-rail i{width:10px;height:10px;border-radius:50%;background:var(--green);justify-self:center;position:relative;z-index:1;
+    box-shadow:0 0 0 3px var(--ground)}
+  .jh-rail i.hot{background:var(--orange)}
+  .jh-rail b{position:absolute;top:50%;left:33.3%;transform:translate(-50%,-50%);z-index:1;
+    color:var(--green);background:var(--ground);padding:0 3px;line-height:0}
+  .jh-rail b.b2{left:66.6%;color:var(--orange)}
+  .jh-rail b svg{display:block}
+  .jh-labels{display:grid;grid-template-columns:1fr 1fr 1fr;max-width:none;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--ink-2);text-align:center}
+  .jh-labels .hot{color:var(--orange)}
+  @media(max-width:700px){
+    .jh-rail{display:none}
+    .jh-labels{display:flex;flex-direction:column;gap:.4rem;font-size:.82rem}
+    .jh-labels span:not(:last-child)::after{content:"";display:block;margin:.5rem auto 0;width:11px;height:11px;
+      background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 10 10' fill='none'%3E%3Cpath d='M1.5 3L5 7 8.5 3' stroke='%238A8C91' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/11px no-repeat}
   }
 
   /* ---------- problem ---------- */
@@ -334,8 +350,13 @@ provenance.
       </div>
       <div class="hero-shot">
         <img class="exhibit" src="../assets/v2-exhibit.png" alt="The Pre-Approve Me app's three views in a demonstration account: home search and calculators, live loan progress, and the homeowner view" width="2080" height="1116">
-        <div class="exhibit-labels" aria-label="The three views: dream, loan, homeowner">
-          <span>Dream</span><span>Loan</span><span>Homeowner</span>
+        <div class="journey-hero" aria-label="The journey: capture the dream, streamline the loan, bring them back">
+          <div class="jh-rail" aria-hidden="true">
+            <i></i><i></i><i class="hot"></i>
+            <b><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M3 1.5L7 5 3 8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+            <b class="b2"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M3 1.5L7 5 3 8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+          </div>
+          <p class="jh-labels"><span>Capture the Dream</span><span>Streamline the Loan</span><span class="hot">Bring Them Back</span></p>
         </div>
       </div>
     </div>
