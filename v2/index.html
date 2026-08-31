@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pre-Approve Me | One App for the Mortgage Relationship</title>
+<meta name="description" content="Give borrowers one place to search for homes, get pre-approved, manage their mortgage, and stay connected after closing. Pre-Approve Me gives loan officers a branded mortgage app built around the client relationship.">
+<link rel="canonical" href="https://outsmartrocket.com/v2/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pre-Approve Me | One App for the Mortgage Relationship">
+<meta property="og:description" content="Give borrowers one place to search for homes, get pre-approved, manage their mortgage, and stay connected after closing.">
+<meta property="og:url" content="https://outsmartrocket.com/v2/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#FCFBF8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Lato:wght@400;700&display=swap">
+<style>
+  :root{
+    --bg:#FCFBF8;          /* warm white */
+    --bg-alt:#F4F2EC;      /* subtle neutral band */
+    --ink:#16181D;         /* near-black */
+    --ink-2:#4A5058;
+    --ink-3:#767C85;
+    --line:#E5E2DA;
+    --accent:#228156;      /* PAM green, deep enough for white text */
+    --accent-hover:#1C6B47;
+    --accent-soft:#E7F2EC;
+    --dark:#16181D;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:'Lato',system-ui,-apple-system,sans-serif;
+    font-size:1.125rem;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent);color:#fff}
+  a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  h1,h2,h3{font-family:'Archivo',sans-serif;letter-spacing:-.025em;text-wrap:balance;line-height:1.06}
+  p{max-width:44rem}
+
+  .wrap{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+  .narrow{max-width:44rem}
+  section{padding:7.5rem 0}
+  @media(max-width:700px){section{padding:4.5rem 0}}
+  .alt{background:var(--bg-alt)}
+  .center{text-align:center}
+  .center p{margin-left:auto;margin-right:auto}
+
+  h2{font-size:clamp(2rem,4vw,3.1rem);font-weight:800;margin-bottom:1.1rem}
+  .lede{font-size:1.2rem;color:var(--ink-2)}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:1.05rem;
+    border-radius:8px;padding:.95rem 1.7rem;text-decoration:none;
+    transition:background .2s ease, transform .2s ease, border-color .2s ease;
+  }
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-hover);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--ink-3)}
+
+  /* ---------- nav ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(252,251,248,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:2rem;height:4.5rem}
+  .logo{display:flex;align-items:center;text-decoration:none}
+  .logo img{display:block;height:28px;width:auto}
+  .nav-links{display:flex;gap:1.8rem;margin-left:auto}
+  .nav-links a{color:var(--ink-2);text-decoration:none;font-size:1rem}
+  .nav-links a:hover{color:var(--ink)}
+  .nav .btn{padding:.6rem 1.15rem;font-size:.95rem}
+  .mnav{display:none;position:relative}
+  .mnav summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .mnav summary::-webkit-details-marker{display:none}
+  .mnav[open] summary{border-color:var(--accent)}
+  .mnav .panel{position:absolute;right:0;top:48px;z-index:60;background:#fff;border:1px solid var(--line);border-radius:10px;padding:.5rem;min-width:220px;display:flex;flex-direction:column;box-shadow:0 14px 34px rgba(22,24,29,.12)}
+  .mnav .panel a{color:var(--ink);text-decoration:none;padding:.6rem .8rem;border-radius:7px;font-size:1rem}
+  .mnav .panel a:hover{background:var(--bg-alt)}
+  @media(max-width:900px){.nav-links{display:none}.nav .btn{margin-left:auto}.mnav{display:block}}
+  @media(max-width:520px){.nav{gap:.7rem}.logo img{height:23px}.nav .btn{font-size:.85rem;padding:.5rem .8rem;white-space:nowrap}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:6rem 0 6.5rem}
+  .hero-cols{display:grid;grid-template-columns:1.15fr 1fr;gap:4.5rem;align-items:center}
+  @media(max-width:900px){.hero-cols{grid-template-columns:1fr;gap:3rem}}
+  .eyebrow{
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.18em;
+    color:var(--accent);margin-bottom:1.3rem;
+  }
+  .hero h1{font-size:clamp(2.6rem,5.2vw,4.25rem);font-weight:800;margin-bottom:1.4rem}
+  .hero .lead{font-size:1.25rem;color:var(--ink-2);margin-bottom:.9rem}
+  .hero .lead-2{font-size:1.05rem;color:var(--ink-3);margin-bottom:2.2rem}
+  .hero-ctas{display:flex;gap:.9rem;flex-wrap:wrap}
+  .hero-shot{display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+  .phone{
+    width:min(300px,80%);border-radius:36px;background:#0E1015;padding:9px;
+    box-shadow:0 30px 70px rgba(22,24,29,.22), 0 8px 22px rgba(22,24,29,.12);
+    position:relative;
+  }
+  .phone img{display:block;width:100%;height:auto;border-radius:28px}
+  .life-strip{
+    display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;justify-content:center;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;
+    color:var(--ink-3);
+  }
+  .life-strip svg{display:block}
+
+  /* ---------- problem ---------- */
+  .before-after{display:grid;grid-template-columns:1fr auto 1fr;gap:2.5rem;align-items:center;margin-top:3.2rem;max-width:60rem}
+  @media(max-width:820px){.before-after{grid-template-columns:1fr;gap:1.6rem;justify-items:center}}
+  .scatter{display:flex;flex-wrap:wrap;gap:.7rem;max-width:22rem}
+  .scatter span{
+    background:#fff;border:1px solid var(--line);border-radius:999px;padding:.5rem 1rem;
+    font-size:.95rem;color:var(--ink-3);
+  }
+  .scatter span:nth-child(2){transform:rotate(-2deg)}
+  .scatter span:nth-child(4){transform:rotate(2deg)}
+  .ba-arrow{color:var(--ink-3)}
+  @media(max-width:820px){.ba-arrow{transform:rotate(90deg)}}
+  .after-app{display:flex;flex-direction:column;align-items:center;gap:1rem}
+  .after-app .phone{width:200px}
+  .after-cap{font-family:'Archivo',sans-serif;font-weight:700;font-size:1rem;color:var(--ink)}
+
+  /* ---------- journey cards ---------- */
+  .journey-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:3.2rem;position:relative}
+  @media(max-width:980px){.journey-cards{grid-template-columns:1fr;max-width:26rem;margin-left:auto;margin-right:auto}}
+  .jcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:1.5rem 1.25rem}
+  .jcard svg{display:block;margin-bottom:1rem}
+  .jcard h3{font-size:1.08rem;font-weight:700;margin-bottom:.45rem}
+  .jcard p{font-size:.95rem;color:var(--ink-2);line-height:1.5}
+
+  /* ---------- lifecycle ---------- */
+  .lifeline{display:flex;align-items:center;justify-content:center;gap:.9rem;flex-wrap:wrap;margin-top:3.4rem}
+  .lstep{
+    font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(1rem,1.7vw,1.35rem);
+    letter-spacing:.04em;color:var(--ink-2);
+  }
+  .lstep.hot{color:var(--accent);position:relative}
+  .lstep.hot::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:3px;background:var(--accent);border-radius:2px}
+  .lifeline svg{color:var(--ink-3);flex:none}
+  @media(max-width:700px){
+    .lifeline{flex-direction:column;gap:.7rem}
+    .lifeline svg{transform:rotate(90deg)}
+  }
+
+  /* ---------- PAM vs LOS ---------- */
+  .vs-heads{margin-bottom:1.4rem}
+  .vs-heads .a{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(1.5rem,2.8vw,2.2rem);color:var(--ink-3);letter-spacing:-.02em}
+  .vs-heads .b{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.1rem);color:var(--ink);letter-spacing:-.025em;margin-top:.3rem}
+  .vs-heads .b em{font-style:normal;color:var(--accent)}
+  .vs-cols{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:3rem;max-width:56rem}
+  @media(max-width:760px){.vs-cols{grid-template-columns:1fr}}
+  .vs-col{border:1px solid var(--line);border-radius:10px;padding:1.7rem 1.6rem;background:#fff}
+  .vs-col.pam{border-color:var(--accent);background:var(--accent-soft)}
+  .vs-col h3{font-size:.85rem;font-weight:700;letter-spacing:.14em;color:var(--ink-3);margin-bottom:1rem}
+  .vs-col.pam h3{color:var(--accent)}
+  .vs-col ul{list-style:none}
+  .vs-col li{padding:.42rem 0;border-bottom:1px solid var(--line);font-size:1rem;color:var(--ink-2)}
+  .vs-col.pam li{border-color:#D3E6DC;color:var(--ink)}
+  .vs-col li:last-child{border-bottom:none}
+  .vs-close{margin-top:2rem;color:var(--ink-2);font-size:1.1rem}
+
+  /* ---------- power users ---------- */
+  .idea-list{display:grid;grid-template-columns:1fr 1fr;gap:.4rem 3rem;margin-top:1.8rem;max-width:40rem}
+  @media(max-width:600px){.idea-list{grid-template-columns:1fr}}
+  .idea-list span{padding:.5rem 0;border-bottom:1px solid var(--line);color:var(--ink-2);font-size:1.05rem}
+
+  /* ---------- AI story ---------- */
+  .ai-heads .a{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.1rem);letter-spacing:-.025em}
+  .ai-heads .b{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.1rem);letter-spacing:-.025em;color:var(--accent)}
+  .triple{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem;max-width:56rem}
+  @media(max-width:760px){.triple{grid-template-columns:1fr}}
+  .triple div{
+    border-top:3px solid var(--accent);background:#fff;border-left:1px solid var(--line);
+    border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+    border-radius:0 0 10px 10px;padding:1.5rem 1.4rem;
+    font-family:'Archivo',sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:-.015em;
+  }
+  .triple div small{display:block;font-family:'Lato',sans-serif;font-weight:400;font-size:.95rem;color:var(--ink-2);margin-top:.5rem;letter-spacing:0}
+  .ai-side{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center}
+  @media(max-width:900px){.ai-side{grid-template-columns:1fr;gap:2.6rem}}
+  .ai-side .phone{width:min(250px,70%);margin:0 auto}
+  .shot-cap{font-size:.9rem;color:var(--ink-3);text-align:center;margin-top:1rem;max-width:30ch;margin-left:auto;margin-right:auto}
+
+  /* ---------- use it your way ---------- */
+  .way-cols{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:3rem;max-width:56rem}
+  @media(max-width:760px){.way-cols{grid-template-columns:1fr}}
+  .way{border:1px solid var(--line);border-radius:10px;padding:1.8rem 1.6rem;background:#fff}
+  .way h3{font-size:.85rem;font-weight:700;letter-spacing:.14em;color:var(--ink-3);margin-bottom:.5rem}
+  .way .big{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.015em;margin-bottom:.7rem}
+  .way p{font-size:1rem;color:var(--ink-2);margin-bottom:1rem}
+  .way ul{list-style:none;columns:2;column-gap:1.5rem}
+  @media(max-width:520px){.way ul{columns:1}}
+  .way li{padding:.3rem 0;font-size:.95rem;color:var(--ink-2)}
+  .way-close{margin-top:2rem;color:var(--ink-2);font-size:1.1rem}
+
+  /* ---------- companies ---------- */
+  .outcomes{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem 3.5rem;margin-top:3rem;max-width:56rem}
+  @media(max-width:700px){.outcomes{grid-template-columns:1fr;gap:1.8rem}}
+  .outcome h3{font-size:1.2rem;font-weight:700;margin-bottom:.4rem}
+  .outcome p{font-size:1rem;color:var(--ink-2)}
+
+  /* ---------- proof ---------- */
+  .proofs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.8rem;max-width:56rem;margin-left:auto;margin-right:auto}
+  @media(max-width:760px){.proofs{grid-template-columns:1fr}}
+  .proof{border-top:2px solid var(--ink);padding-top:1.1rem;text-align:left}
+  .proof h3{font-size:1.12rem;font-weight:700;margin-bottom:.35rem}
+  .proof p{font-size:.98rem;color:var(--ink-2)}
+
+  /* ---------- final CTA ---------- */
+  .final{background:var(--dark);color:#FCFBF8;text-align:center;padding:8rem 0}
+  @media(max-width:700px){.final{padding:5rem 0}}
+  .final h2{color:#FCFBF8;font-size:clamp(2.1rem,4.4vw,3.4rem)}
+  .final p{color:#B9BEC6;margin:0 auto 2.4rem;font-size:1.15rem}
+  .final .close-line{margin-top:2.2rem;color:#8A9099;font-size:1rem;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:.03em}
+  .final a.plain{color:#B9BEC6;margin-left:1.4rem;font-size:1rem}
+
+  footer{padding:2.6rem 0 3rem;font-size:.95rem;color:var(--ink-3);border-top:1px solid var(--line)}
+  footer .row{display:flex;flex-wrap:wrap;gap:.8rem 1.8rem;align-items:center;justify-content:space-between}
+  footer a{color:var(--ink-3)}
+
+
+  /* mobile sticky CTA */
+  .sticky-cta{
+    position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
+    padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom));
+    background:rgba(252,251,248,.96);border-top:1px solid var(--line);
+  }
+  .sticky-cta a{width:100%;}
+  body.show-sticky .sticky-cta{display:block}
+  @media(min-width:701px){body.show-sticky .sticky-cta{display:none}}
+</style>
+</head>
+<body>
+<!--
+THESIS: comprehension in ten seconds; the page is one story told in order
+(what it is, why care, how it differs, who can go further) with restraint as
+the design language. Refuses the dark busy v1 grammar and the SaaS feature
+grid alike.
+OWN-WORLD: warm-white ground (#FCFBF8), near-black Archivo 800 display, Lato
+body, one deep PAM green accent (#228156), hairline cards, generous space.
+STORY: a loan officer who has never heard of PAM understands the app from the
+hero, sees the scattered-tools problem, the journey, the LOS distinction, the
+build-on-top layer, and books a demo.
+FIRST VIEWPORT: eyebrow, one-line H1, two short support sentences, two CTAs,
+one phone with a small lifecycle strip beneath.
+FORM: user-pinned clean-sheet brief (Outsmart Rocket 2.0 spec); no roll.
+Code-led. v1 pages untouched.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the
+finish review, the verdict, DESIGN.md, and every shipping raster carrying its
+provenance.
+-->
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Pre-Approve Me"><img src="../assets/logo-dark.png" alt="Pre-Approve Me"></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#how">How It Works</a>
+      <a href="#why">Why PAM</a>
+      <a href="#power-users">Power Users</a>
+      <a href="#companies">For Companies</a>
+    </nav>
+    <a class="btn btn-primary" href="https://calendar.app.google/QRzzaLYC4T55xYpXA" target="_blank" rel="noopener">Book a Demo</a>
+    <details class="mnav">
+      <summary aria-label="Open menu">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="#16181D" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </summary>
+      <nav class="panel" aria-label="Mobile">
+        <a href="#how">How It Works</a>
+        <a href="#why">Why PAM</a>
+        <a href="#power-users">Power Users</a>
+        <a href="#companies">For Companies</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 1 HERO -->
+  <section class="hero" aria-label="Overview">
+    <div class="wrap hero-cols">
+      <div>
+        <p class="eyebrow">YOUR BRAND. YOUR CLIENTS. ONE APP.</p>
+        <h1>One app for the whole mortgage relationship.</h1>
+        <p class="lead">Pre-Approve Me gives loan officers a branded app where buyers can search for homes, get pre-approved, manage their loan, and stay connected after closing.</p>
+        <p class="lead-2">Start with a platform that already works. Make it your own when you're ready.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://calendar.app.google/QRzzaLYC4T55xYpXA" target="_blank" rel="noopener">Book a Demo</a>
+          <a class="btn btn-ghost" href="#how">See How It Works ↓</a>
+        </div>
+      </div>
+      <div class="hero-shot">
+        <figure class="phone"><img src="../assets/lead-view.png" alt="A branded Pre-Approve Me app: home search, payment calculators, and pre-approval under the loan officer's brand" width="520" height="1065"></figure>
+        <p class="life-strip">
+          <span>SEARCH</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>PAYMENT</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>PRE-APPROVAL</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>LOAN</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>HOMEOWNER</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 PROBLEM -->
+  <section class="alt" aria-label="The problem">
+    <div class="wrap">
+      <h2>Stop sending your clients everywhere.</h2>
+      <p class="lede narrow">Home search is in one place. Calculators are somewhere else. The mortgage application is somewhere else. Loan updates come through email and text. After closing, the relationship usually disappears.</p>
+      <p style="margin-top:1rem;color:var(--ink)">Your client should not need five different tools to work with you.</p>
+      <div class="before-after">
+        <div class="scatter" aria-label="Disconnected tools">
+          <span>Home Search</span>
+          <span>Calculator</span>
+          <span>Application</span>
+          <span>Loan Updates</span>
+          <span>Realtor Tools</span>
+          <span>Homeowner Tools</span>
+        </div>
+        <svg class="ba-arrow" width="40" height="24" viewBox="0 0 40 24" fill="none" aria-hidden="true"><path d="M2 12h32M26 4l8 8-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="after-app">
+          <figure class="phone"><img src="../assets/closed-view.png" alt="One Pre-Approve Me app holding the whole relationship" width="520" height="1065" loading="lazy"></figure>
+          <p class="after-cap">One app. One client relationship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 WHAT IT IS -->
+  <section id="how" aria-label="What Pre-Approve Me is">
+    <div class="wrap">
+      <h2>Everything your borrower needs. In one place.</h2>
+      <p class="lede narrow">Pre-Approve Me connects the parts of the mortgage experience borrowers actually see.</p>
+      <div class="journey-cards">
+        <div class="jcard">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3.5 11L12 4l8.5 7M6 9.5V19a1 1 0 001 1h10a1 1 0 001-1V9.5" stroke="#228156" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Find a Home</h3>
+          <p>Let buyers search for homes without leaving your experience.</p>
+        </div>
+        <div class="jcard">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17" rx="2" stroke="#228156" stroke-width="1.6"/><path d="M8 8h8M8 12h4M8 16h5" stroke="#228156" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>Know the Payment</h3>
+          <p>Help buyers understand price, payment, and buying power.</p>
+        </div>
+        <div class="jcard">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l7 3.5v5c0 4.2-3 7.1-7 8.5-4-1.4-7-4.3-7-8.5v-5L12 3z" stroke="#228156" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 11.5l2 2 4-4.5" stroke="#228156" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Get Pre-Approved</h3>
+          <p>Move buyers from shopping to mortgage-ready.</p>
+        </div>
+        <div class="jcard">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h4l2.5-6 3 12 2.5-6h4" stroke="#228156" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Manage the Loan</h3>
+          <p>Keep borrowers and partners connected while the loan moves toward closing.</p>
+        </div>
+        <div class="jcard">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.5A4.5 4.5 0 0112 7a4.5 4.5 0 017 3.5c0 5.1-7 9.5-7 9.5z" stroke="#228156" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <h3>Stay Connected</h3>
+          <p>Keep helping homeowners after closing so the relationship does not disappear.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 JOURNEY -->
+  <section class="alt center" aria-label="The borrower journey">
+    <div class="wrap">
+      <h2>From home search to homeownership.</h2>
+      <p class="lede">Your relationship with the borrower should last longer than the loan application.</p>
+      <div class="lifeline" aria-label="The lifecycle, ending with come back">
+        <span class="lstep">SHOP</span>
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="lstep">CALCULATE</span>
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="lstep">PRE-APPROVE</span>
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="lstep">BUY</span>
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="lstep">CLOSE</span>
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="lstep">OWN</span>
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="lstep hot">COME BACK</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 PAM VS LOS -->
+  <section id="why" aria-label="Pre-Approve Me versus your LOS">
+    <div class="wrap">
+      <div class="vs-heads">
+        <p class="a">Your LOS manages the loan.</p>
+        <p class="b">Pre-Approve Me manages <em>the relationship.</em></p>
+      </div>
+      <p class="lede narrow">Your loan origination system is built to move a mortgage file through underwriting and closing. Pre-Approve Me is built around the people using it.</p>
+      <div class="vs-cols">
+        <div class="vs-col">
+          <h3>YOUR LOS</h3>
+          <ul>
+            <li>Loan file</li>
+            <li>Underwriting</li>
+            <li>Documents</li>
+            <li>Conditions</li>
+            <li>Compliance</li>
+            <li>Closing</li>
+          </ul>
+        </div>
+        <div class="vs-col pam">
+          <h3>PRE-APPROVE ME</h3>
+          <ul>
+            <li>Borrower</li>
+            <li>Realtor</li>
+            <li>Home search</li>
+            <li>Pre-approval</li>
+            <li>Communication</li>
+            <li>Education</li>
+            <li>Homeownership</li>
+            <li>Repeat business</li>
+          </ul>
+        </div>
+      </div>
+      <p class="vs-close narrow">They do different jobs. Pre-Approve Me gives the client relationship a home.</p>
+    </div>
+  </section>
+
+  <!-- 6 POWER USERS INTRO -->
+  <section class="alt" id="power-users" aria-label="Works out of the box, or make it yours">
+    <div class="wrap">
+      <h2>Works out of the box. Or make it yours.</h2>
+      <p class="lede narrow">Most loan officers do not want to build software. They just want better software. Pre-Approve Me gives them that.</p>
+      <p style="margin-top:1rem;color:var(--ink-2)">But some loan officers want to go further.</p>
+      <h3 style="font-size:clamp(1.5rem,2.6vw,2rem);font-weight:800;margin-top:3rem;letter-spacing:-.02em">Have an idea? Put it inside your mortgage app.</h3>
+      <div class="idea-list">
+        <span>Custom calculators</span>
+        <span>AI assistants</span>
+        <span>Buyer guides</span>
+        <span>Realtor tools</span>
+        <span>Investor tools</span>
+        <span>Custom workflows</span>
+        <span>Videos and education</span>
+        <span>Lead-generation tools</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 AI STORY -->
+  <section aria-label="The AI story">
+    <div class="wrap">
+      <div class="ai-side">
+        <div>
+          <div class="ai-heads">
+            <h2 style="margin-bottom:.2rem" class="a">AI made it easy to build tools.</h2>
+            <p class="b">The hard part is giving them a home.</p>
+          </div>
+          <p class="lede narrow" style="margin-top:1.2rem">Loan officers can now create calculators, AI assistants, guides, Realtor tools, and custom experiences faster than ever. But those tools usually end up scattered across different websites and links.</p>
+          <p style="margin-top:1rem;color:var(--ink)">Pre-Approve Me gives them one place to live.</p>
+        </div>
+        <div>
+          <figure class="phone"><img src="../assets/coach-chat.png" alt="An AI assistant living inside a loan officer's branded app, coaching a Realtor" width="520" height="1065" loading="lazy"></figure>
+          <p class="shot-cap">A custom AI assistant, living inside the app.</p>
+        </div>
+      </div>
+      <div class="triple">
+        <div>You build it.<small>Your tools, your ideas, your content.</small></div>
+        <div>We connect it.<small>Everything goes inside your branded app.</small></div>
+        <div>Your clients use it.<small>Right where they already manage their mortgage.</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 STANDARD VS POWER -->
+  <section class="alt" aria-label="Use it your way">
+    <div class="wrap">
+      <h2>Use it your way.</h2>
+      <div class="way-cols">
+        <div class="way">
+          <h3>MOST LOAN OFFICERS</h3>
+          <p class="big">Start ready to go.</p>
+          <p>Use Pre-Approve Me's tools, workflows, and borrower experience without building anything yourself.</p>
+          <ul>
+            <li>Branded app</li>
+            <li>Home search</li>
+            <li>Pre-approval</li>
+            <li>Mortgage tools</li>
+            <li>Client communication</li>
+            <li>Post-close relationship</li>
+          </ul>
+        </div>
+        <div class="way">
+          <h3>POWER USERS</h3>
+          <p class="big">Build on top of it.</p>
+          <p>Add the ideas, tools, and processes that make your business different.</p>
+          <ul>
+            <li>Custom tools</li>
+            <li>AI assistants</li>
+            <li>Custom workflows</li>
+            <li>Realtor experiences</li>
+            <li>Custom content</li>
+            <li>Unique client journeys</li>
+          </ul>
+        </div>
+      </div>
+      <p class="way-close narrow">You do not have to be technical to use Pre-Approve Me. But if you are technical, creative, or AI-enabled, the platform does not have to hold you back.</p>
+    </div>
+  </section>
+
+  <!-- 9 COMPANIES -->
+  <section id="companies" aria-label="For mortgage companies">
+    <div class="wrap">
+      <h2>Give your loan officers a platform they can grow into.</h2>
+      <p class="lede narrow">Give every loan officer a strong client experience from day one while giving your best producers room to build, customize, and differentiate.</p>
+      <div class="outcomes">
+        <div class="outcome"><h3>One Brand</h3><p>Keep the client experience connected to your company and your loan officers.</p></div>
+        <div class="outcome"><h3>Better Adoption</h3><p>Give loan officers technology they can actually use with borrowers.</p></div>
+        <div class="outcome"><h3>More Differentiation</h3><p>Help producers create experiences competitors cannot easily copy.</p></div>
+        <div class="outcome"><h3>Longer Relationships</h3><p>Stay connected beyond one mortgage transaction.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 PROOF -->
+  <section class="alt center" aria-label="Proof">
+    <div class="wrap">
+      <h2>Built by mortgage people. Running in the real world.</h2>
+      <!-- METRIC PLACEHOLDER: add "1,000,000+ loan files processed" here once the
+           figure is verified as current and accurate. Do not publish unverified numbers. -->
+      <div class="proofs">
+        <div class="proof"><h3>Live white-label instances</h3><p>Real loan officers run their businesses on Pre-Approve Me today, under their own brands.</p></div>
+        <div class="proof"><h3>Native iOS and Android</h3><p>Apps ship to the App Store and Google Play under the loan officer's or company's own name.</p></div>
+        <div class="proof"><h3>Founded by a loan officer</h3><p>Built by a practitioner who needed it, not a software vendor guessing at the workflow.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 FINAL CTA -->
+  <section class="final" aria-label="Book a demo">
+    <div class="wrap">
+      <h2>Stop stitching together your mortgage experience.</h2>
+      <p class="narrow">Give your clients one place to search, get pre-approved, manage their mortgage, and stay connected with you.</p>
+      <a class="btn btn-primary" href="https://calendar.app.google/QRzzaLYC4T55xYpXA" target="_blank" rel="noopener">Book a Demo</a>
+      <a class="plain" href="#how">See the platform</a>
+      <p class="close-line">YOUR BRAND. YOUR PROCESS. YOUR CLIENT RELATIONSHIP.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span>© 2026 Pre-Approve Me</span>
+    <span><a href="https://calendar.app.google/QRzzaLYC4T55xYpXA" target="_blank" rel="noopener">Book a Demo</a></span>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-primary" href="https://calendar.app.google/QRzzaLYC4T55xYpXA" target="_blank" rel="noopener">Book a Demo</a>
+</div>
+<script>
+(function(){
+  var shown=false;
+  function onScroll(){
+    var past=window.scrollY>700;
+    if(past!==shown){shown=past;document.body.classList.toggle('show-sticky',past);}
+  }
+  if(window.matchMedia('(max-width: 700px)').matches){
+    window.addEventListener('scroll',onScroll,{passive:true});
+  }
+})();
+</script>
+
+</body>
+</html>
