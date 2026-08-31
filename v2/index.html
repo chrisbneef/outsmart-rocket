@@ -301,14 +301,16 @@
   .r-list li{display:flex;gap:.7rem;align-items:baseline;padding:.55rem 0;border-bottom:1px solid var(--line);color:var(--ink-2);font-size:1.02rem}
   .r-list li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);flex:none;position:relative;top:-1px}
   .r-list li b{color:var(--ink);font-weight:700}
-  .r-assets{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin:3rem auto 0;max-width:56rem}
-  @media(max-width:700px){.r-assets{grid-template-columns:1fr;max-width:24rem}}
-  .r-assets figure{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem;margin:0;
-    box-shadow:0 26px 60px rgba(0,0,0,.5)}
-  .r-assets figure:first-child{transform:rotate(-2deg)}
-  .r-assets figure:last-child{transform:rotate(2deg)}
-  .r-assets img{display:block;width:100%;height:auto;border-radius:8px}
-  .r-assets figcaption{font-size:.88rem;color:var(--ink-3);text-align:center;margin-top:.8rem}
+  .r-showcase{position:relative;width:min(460px,86%);margin:3.6rem auto 0}
+  .r-tablet{background:#050506;border:1px solid var(--line-2);border-radius:26px;padding:14px;
+    transform:rotate(-2deg);box-shadow:0 44px 96px rgba(0,0,0,.6)}
+  .r-tablet img{display:block;width:100%;height:auto;border-radius:14px}
+  .r-zoom{position:absolute;right:-14%;bottom:7%;width:62%;transform:rotate(3.5deg);
+    border:2px solid var(--green);border-radius:12px;overflow:hidden;background:#fff;
+    box-shadow:0 28px 64px rgba(0,0,0,.65)}
+  .r-zoom img{display:block;width:100%;height:auto}
+  @media(max-width:700px){.r-zoom{right:-6%}}
+  .r-showcase-cap{font-size:.88rem;color:var(--ink-3);text-align:center;margin:1.4rem auto 0;max-width:34rem}
 
   /* ---------- companies ---------- */
   .co-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center;margin-top:1rem;text-align:left}
@@ -680,10 +682,11 @@ provenance.
           <p class="video-cap">Realtor tools in a mortgage app?</p>
         </div>
       </div>
-      <div class="r-assets">
-        <figure><img src="../assets/openhouse-flyer.png" alt="A co-branded open house flyer generated inside the app" width="640" height="828" loading="lazy"><figcaption>A co-branded open house flyer, made in the app</figcaption></figure>
-        <figure><img src="../assets/offer-architect-pdf.png" alt="An Offer Architect strategy PDF for a buyer's offer" width="980" height="757" loading="lazy"><figcaption>An Offer Architect strategy, delivered as a PDF</figcaption></figure>
+      <div class="r-showcase">
+        <div class="r-tablet"><img src="../assets/openhouse-flyer.png" alt="A co-branded open house flyer generated inside the app, shown on a tablet" width="640" height="828" loading="lazy"></div>
+        <div class="r-zoom"><img src="../assets/offer-architect-pdf.png" alt="An Offer Architect scenario comparison PDF popping over the flyer" width="980" height="757" loading="lazy"></div>
       </div>
+      <p class="r-showcase-cap">Made in the app: a co-branded open house flyer, and an Offer Architect scenario comparison delivered as a PDF.</p>
     </div>
   </section>
 
