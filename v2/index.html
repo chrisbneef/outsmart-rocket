@@ -118,14 +118,15 @@
   .hero .wrap{position:relative}
   .strap{
     font-family:'Archivo',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.2em;
-    text-transform:uppercase;color:var(--ink-3);margin:0 auto 1.7rem;max-width:none;
+    text-transform:uppercase;color:var(--ink-3);margin:0 auto 1.3rem;max-width:none;
   }
   .strap i{font-style:normal;color:var(--green);margin:0 .65rem}
   @media(max-width:420px){.strap{letter-spacing:.13em}.strap i{margin:0 .45rem}}
-  .hero h1{font-size:clamp(2.6rem,5.4vw,4.4rem);font-weight:800;max-width:17ch;margin:0 auto 1.4rem}
-  .hero .lead{font-size:1.25rem;color:var(--ink-2);max-width:40rem;margin:0 auto .8rem}
-  .hero .lead-2{font-size:1.05rem;color:var(--ink-3);margin:0 auto 2.2rem}
-  .hero-ctas{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;margin-bottom:3.6rem}
+  .hero h1{font-size:clamp(2.6rem,5.4vw,4.4rem);font-weight:800;max-width:20ch;margin:0 auto 1.3rem}
+  .hero .lead{font-size:clamp(1.18rem,2.2vw,1.35rem);color:var(--ink);max-width:56rem;margin:0 auto 1rem;text-wrap:balance}
+  .hero .lead i{font-style:normal;color:var(--orange)}
+  .hero .lead-2{font-size:1.02rem;color:var(--ink-3);max-width:44rem;margin:0 auto 2.6rem}
+  .hero-ctas{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.8rem}
   .hero-shot{display:flex;flex-direction:column;align-items:center;gap:1.5rem}
   .exhibit{display:block;width:min(1080px,100%);height:auto;margin:0 auto}
   .phone{
@@ -316,8 +317,9 @@ centered keynote rhythm with editorial rule-labels, drafting grid in hero and fi
 STORY: a loan officer who has never heard of PAM understands the app from the
 hero, sees the scattered-tools problem, the journey, the LOS distinction, the
 build-on-top layer, and books a demo.
-FIRST VIEWPORT: eyebrow, one-line H1, two short support sentences, two CTAs,
-one phone with a small lifecycle strip beneath.
+FIRST VIEWPORT: eyebrow, two-line H1, the reassurance lede ("already works /
+make it your own", orange hook on "your own") over a small feature line, two
+CTAs, three phone tops with the journey rail beneath.
 FORM: user-pinned clean-sheet brief (Outsmart Rocket 2.0 spec); no roll.
 Code-led. v1 pages untouched.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the
@@ -359,8 +361,8 @@ provenance.
       <div>
         <p class="strap">Your brand<i>·</i>Your clients<i>·</i>One app</p>
         <h1>One app for the whole mortgage relationship.</h1>
-        <p class="lead">Pre-Approve Me gives loan officers a branded app where buyers can search for homes, get pre-approved, manage their loan, and stay connected after closing.</p>
-        <p class="lead-2">Start with a platform that already works. Make it your own when you're ready.</p>
+        <p class="lead">Start with a platform that already works. Make it <i>your own</i> when you're ready.</p>
+        <p class="lead-2">A branded app where buyers search for homes, get pre-approved, manage their loan, and stay connected after closing.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="https://calendar.app.google/QRzzaLYC4T55xYpXA" target="_blank" rel="noopener">Book a Demo</a>
           <a class="btn btn-ghost" href="#how">See How It Works<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="margin-left:.15rem"><path d="M7 2.5v9M3.5 8L7 11.5 10.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
