@@ -58,19 +58,18 @@
   .center p{margin-left:auto;margin-right:auto}
   .sec-center{text-align:center}
   .sec-center p{margin-left:auto;margin-right:auto}
-  .sec-center .pill{margin-left:auto;margin-right:auto}
+  
 
   h2{font-size:clamp(2rem,4vw,3.1rem);font-weight:800;margin-bottom:1.1rem}
   .lede{font-size:1.2rem;color:var(--ink-2)}
 
-  .pill{
-    display:inline-flex;align-items:center;gap:.55rem;
-    font-family:'Archivo',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--ink-3);
-    border:1px solid var(--line-2);border-radius:999px;padding:.4rem 1rem;margin-bottom:1.6rem;
+  .rule-label{
+    display:flex;align-items:center;gap:1.2rem;
+    width:min(560px,100%);margin:0 auto 1.8rem;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink-3);white-space:nowrap;
   }
-  .pill i{width:6px;height:6px;border-radius:50%;background:var(--green);font-style:normal}
-  .pill.hot i{background:var(--orange)}
+  .rule-label::before,.rule-label::after{content:"";height:1px;background:var(--line-2);flex:1;min-width:2rem}
 
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
@@ -114,13 +113,11 @@
   .hero-glow{position:absolute;inset:0;pointer-events:none;
     background:radial-gradient(700px 480px at 50% 12%, rgba(86,211,139,.08), transparent 70%)}
   .hero .wrap{position:relative}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:.55rem;
-    font-family:'Archivo',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.17em;
-    color:var(--ink-3);border:1px solid var(--line-2);border-radius:999px;padding:.42rem 1.05rem;
-    margin-bottom:1.6rem;
+  .strap{
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink-3);margin:0 auto 1.7rem;max-width:none;
   }
-  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
+  .strap i{font-style:normal;color:var(--green);margin:0 .65rem}
   .hero h1{font-size:clamp(2.6rem,5.4vw,4.4rem);font-weight:800;max-width:17ch;margin:0 auto 1.4rem}
   .hero .lead{font-size:1.25rem;color:var(--ink-2);max-width:40rem;margin:0 auto .8rem}
   .hero .lead-2{font-size:1.05rem;color:var(--ink-3);margin:0 auto 2.2rem}
@@ -282,7 +279,7 @@ grid alike.
 OWN-WORLD: Legend-template dark world per user pin (2026-08-31): near-black
 #0B0B0C ground, #1E1E20 gray slabs, green #56D38B as the living accent,
 orange #FE7820 earned only (COME BACK, closing line), Archivo/Lato retained,
-centered keynote rhythm with pill labels, drafting grid in hero and final.
+centered keynote rhythm with editorial rule-labels, drafting grid in hero and final.
 STORY: a loan officer who has never heard of PAM understands the app from the
 hero, sees the scattered-tools problem, the journey, the LOS distinction, the
 build-on-top layer, and books a demo.
@@ -327,7 +324,7 @@ provenance.
     <div class="hero-glow"></div>
     <div class="wrap">
       <div>
-        <p class="eyebrow">YOUR BRAND. YOUR CLIENTS. ONE APP.</p>
+        <p class="strap">Your brand<i>·</i>Your clients<i>·</i>One app</p>
         <h1>One app for the whole mortgage relationship.</h1>
         <p class="lead">Pre-Approve Me gives loan officers a branded app where buyers can search for homes, get pre-approved, manage their loan, and stay connected after closing.</p>
         <p class="lead-2">Start with a platform that already works. Make it your own when you're ready.</p>
@@ -357,7 +354,7 @@ provenance.
   <section class="alt" aria-label="The problem">
     <div class="wrap">
       <div class="sec-center">
-      <span class="pill"><i></i>The problem</span>
+      <p class="rule-label">The problem</p>
       <h2>Stop sending your clients everywhere.</h2>
       <p class="lede narrow">Home search is in one place. Calculators are somewhere else. The mortgage application is somewhere else. Loan updates come through email and text. After closing, the relationship usually disappears.</p>
       <p style="margin-top:1rem;color:var(--ink)">Your client should not need five different tools to work with you.</p>
@@ -384,7 +381,7 @@ provenance.
   <section id="how" aria-label="What Pre-Approve Me is">
     <div class="wrap">
       <div class="sec-center">
-      <span class="pill"><i></i>What it is</span>
+      <p class="rule-label">What it is</p>
       <h2>Everything your borrower needs. In one place.</h2>
       <p class="lede narrow">Pre-Approve Me connects the parts of the mortgage experience borrowers actually see.</p>
       </div>
@@ -421,7 +418,7 @@ provenance.
   <!-- 4 JOURNEY -->
   <section class="alt center" aria-label="The borrower journey">
     <div class="wrap">
-      <span class="pill hot"><i></i>The journey</span>
+      <p class="rule-label">The journey</p>
       <h2>From home search to homeownership.</h2>
       <p class="lede">Your relationship with the borrower should last longer than the loan application.</p>
       <div class="lifeline" aria-label="The lifecycle, ending with come back">
@@ -445,7 +442,7 @@ provenance.
   <!-- 5 PAM VS LOS -->
   <section id="why" aria-label="Pre-Approve Me versus your LOS">
     <div class="wrap">
-      <div class="sec-center"><span class="pill"><i></i>Why PAM</span></div>
+      <div class="sec-center"><p class="rule-label">Why PAM</p></div>
       <h2 class="vs-h">
         <span class="a">Your LOS manages the loan.</span>
         <span class="b">Pre-Approve Me manages <em>the relationship.</em></span>
@@ -485,7 +482,7 @@ provenance.
   <section class="alt" id="power-users" aria-label="Works out of the box, or make it yours">
     <div class="wrap">
       <div class="sec-center">
-      <span class="pill"><i></i>Power users</span>
+      <p class="rule-label">Power users</p>
       <h2>Works out of the box. Or make it yours.</h2>
       <p class="lede narrow">Most loan officers do not want to build software. They just want better software. Pre-Approve Me gives them that.</p>
       <p style="margin-top:1rem;color:var(--ink-2)">But some loan officers want to go further.</p>
@@ -532,7 +529,7 @@ provenance.
   <section class="alt" aria-label="Use it your way">
     <div class="wrap">
       <div class="sec-center">
-      <span class="pill"><i></i>Two ways in</span>
+      <p class="rule-label">Two ways in</p>
       <h2>Use it your way.</h2>
       </div>
       <div class="way-cols">
@@ -571,7 +568,7 @@ provenance.
   <section id="companies" aria-label="For mortgage companies">
     <div class="wrap">
       <div class="sec-center">
-      <span class="pill"><i></i>For companies</span>
+      <p class="rule-label">For companies</p>
       <h2>Give your loan officers a platform they can grow into.</h2>
       <p class="lede narrow">Give every loan officer a strong client experience from day one while giving your best producers room to build, customize, and differentiate.</p>
       </div>
@@ -587,7 +584,7 @@ provenance.
   <!-- 10 PROOF -->
   <section class="alt center" aria-label="Proof">
     <div class="wrap">
-      <span class="pill"><i></i>Proof</span>
+      <p class="rule-label">Proof</p>
       <h2>Built by mortgage people. Running in the real world.</h2>
       <!-- METRIC PLACEHOLDER: add "1,000,000+ loan files processed" here once the
            figure is verified as current and accurate. Do not publish unverified numbers. -->
