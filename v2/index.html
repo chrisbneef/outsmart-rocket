@@ -301,16 +301,22 @@
   .r-list li{display:flex;gap:.7rem;align-items:baseline;padding:.55rem 0;border-bottom:1px solid var(--line);color:var(--ink-2);font-size:1.02rem}
   .r-list li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);flex:none;position:relative;top:-1px}
   .r-list li b{color:var(--ink);font-weight:700}
-  .r-showcase{position:relative;width:min(460px,86%);margin:3.6rem auto 0}
+  .feat-row{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:5rem;text-align:left}
+  @media(max-width:860px){.feat-row{grid-template-columns:1fr;gap:2.4rem}
+    .feat-row .feat-media{order:1}}
+  .feat-kicker{font-family:'Archivo',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--orange);margin-bottom:.7rem}
+  .feat-row h3{font-size:clamp(1.4rem,2.4vw,1.8rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.7rem}
+  .feat-row .feat-copy p{color:var(--ink-2);font-size:1.05rem}
   .r-tablet{background:#050506;border:1px solid var(--line-2);border-radius:26px;padding:14px;
-    transform:rotate(-2deg);box-shadow:0 44px 96px rgba(0,0,0,.6)}
+    width:min(400px,92%);margin:0 auto;transform:rotate(2deg);box-shadow:0 44px 96px rgba(0,0,0,.6)}
   .r-tablet img{display:block;width:100%;height:auto;border-radius:14px}
-  .r-zoom{position:absolute;right:-14%;bottom:7%;width:62%;transform:rotate(3.5deg);
-    border:2px solid var(--green);border-radius:12px;overflow:hidden;background:#fff;
-    box-shadow:0 28px 64px rgba(0,0,0,.65)}
-  .r-zoom img{display:block;width:100%;height:auto}
-  @media(max-width:700px){.r-zoom{right:-6%}}
-  .r-showcase-cap{font-size:.88rem;color:var(--ink-3);text-align:center;margin:1.4rem auto 0;max-width:34rem}
+  .oa-combo{position:relative;width:min(460px,94%);margin:0 auto}
+  .oa-pdf{background:#fff;border-radius:12px;padding:8px;transform:rotate(-2.5deg);
+    box-shadow:0 34px 76px rgba(0,0,0,.6);margin-left:18%}
+  .oa-pdf img{display:block;width:100%;height:auto;border-radius:6px}
+  .oa-combo .phone{position:absolute;left:-2%;bottom:-8%;width:138px;transform:rotate(-6deg);padding:7px;border-radius:26px}
+  .oa-combo .phone img{border-radius:20px}
 
   /* ---------- companies ---------- */
   .co-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center;margin-top:1rem;text-align:left}
@@ -682,11 +688,29 @@ provenance.
           <p class="video-cap">Realtor tools in a mortgage app?</p>
         </div>
       </div>
-      <div class="r-showcase">
-        <div class="r-tablet"><img src="../assets/openhouse-flyer.png" alt="A co-branded open house flyer generated inside the app, shown on a tablet" width="640" height="828" loading="lazy"></div>
-        <div class="r-zoom"><img src="../assets/offer-architect-pdf.png" alt="An Offer Architect scenario comparison PDF popping over the flyer" width="980" height="757" loading="lazy"></div>
+      <div class="feat-row">
+        <div class="feat-copy">
+          <p class="feat-kicker">Realtor tool 01</p>
+          <h3>Realtor Flyers</h3>
+          <p>Enter a property address and the app builds a co-branded open house flyer: photos, listing details, and QR codes that put your app on every visitor's phone before they leave the driveway.</p>
+        </div>
+        <div class="feat-media">
+          <div class="r-tablet"><img src="../assets/openhouse-flyer.png" alt="A co-branded open house flyer generated inside the app, shown on a tablet" width="640" height="828" loading="lazy"></div>
+        </div>
       </div>
-      <p class="r-showcase-cap">Made in the app: a co-branded open house flyer, and an Offer Architect scenario comparison delivered as a PDF.</p>
+      <div class="feat-row">
+        <div class="feat-media">
+          <div class="oa-combo">
+            <div class="oa-pdf"><img src="../assets/offer-architect-pdf.png" alt="The Offer Architect scenario comparison PDF: seller pays full, seller pays half, buyer pays out of pocket" width="980" height="757" loading="lazy"></div>
+            <figure class="phone"><img src="../assets/oa-form.png" alt="The Offer Architect form inside the app" width="520" height="1065" loading="lazy"></figure>
+          </div>
+        </div>
+        <div class="feat-copy">
+          <p class="feat-kicker">Realtor tool 02</p>
+          <h3>Offer Architect</h3>
+          <p>Model who pays what on an offer: seller pays full, seller pays half, or buyer pays out of pocket, side by side. The buyer and their Realtor walk away with a clean comparison PDF that makes the hard conversation easy.</p>
+        </div>
+      </div>
     </div>
   </section>
 
