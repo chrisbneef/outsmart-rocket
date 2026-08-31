@@ -184,7 +184,8 @@
 
   /* ---------- rocket conveyor ---------- */
   .conveyor{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
-    border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:3.2rem auto 0}
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:3.2rem auto 0;
+    box-shadow:0 26px 60px rgba(0,0,0,.45)}
   .cv{background:var(--card);padding:1.6rem 1.4rem;text-align:left;position:relative}
   .cv .stage{font-family:'Archivo',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.18em;
     text-transform:uppercase;color:var(--ink-3)}
@@ -198,7 +199,7 @@
   .rocket-a{color:var(--green);font-size:1.15rem;max-width:44rem}
 
   /* ---------- journey flow ---------- */
-  .journey-flow{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:3.2rem auto 0}
+  .journey-flow{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:3.2rem auto 0;box-shadow:0 26px 60px rgba(0,0,0,.45)}
   .journey-flow::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;z-index:1;
     background:linear-gradient(90deg,var(--green) 0%,var(--green) 72%,var(--orange) 100%)}
   .jstep{background:var(--card);padding:1.5rem 1.25rem;text-align:left}
@@ -217,7 +218,7 @@
   .vs-h .b em{font-style:normal;color:var(--green)}
   .vs-cols{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:3rem auto 0;max-width:56rem}
   @media(max-width:760px){.vs-cols{grid-template-columns:1fr}}
-  .vs-col{border:1px solid var(--line);border-radius:10px;padding:1.7rem 1.6rem;background:var(--card);text-align:left}
+  .vs-col{border:1px solid var(--line);border-radius:10px;padding:1.7rem 1.6rem;background:var(--card);text-align:left;box-shadow:0 22px 50px rgba(0,0,0,.4)}
   .vs-col.pam{border-color:var(--green-line);background:linear-gradient(180deg, var(--green-soft), var(--card) 65%)}
   .vs-col.pam li:last-child{color:var(--orange)}
   .vs-col .col-label{font-family:'Archivo',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.14em;color:var(--ink-3);margin-bottom:1rem}
@@ -229,7 +230,9 @@
   .vs-close{margin:2rem auto 0;color:var(--ink-2);font-size:1.1rem;text-align:center}
 
   /* ---------- power users ---------- */
-  .idea-list{display:grid;grid-template-columns:1fr 1fr;gap:.4rem 3rem;margin:1.8rem auto 0;max-width:40rem}
+  .idea-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center;margin:1.8rem auto 0;max-width:60rem}
+  @media(max-width:860px){.idea-grid{grid-template-columns:1fr;gap:2rem;max-width:40rem}}
+  .idea-list{display:grid;grid-template-columns:1fr 1fr;gap:.4rem 3rem}
   @media(max-width:600px){.idea-list{grid-template-columns:1fr}}
   .idea-list span{display:flex;align-items:center;gap:.65rem;padding:.5rem 0;border-bottom:1px solid var(--line);color:var(--ink-2);font-size:1.05rem;text-align:left}
   .idea-list span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);flex:none}
@@ -249,7 +252,7 @@
   .triple div small{display:block;font-family:'Lato',sans-serif;font-weight:400;font-size:.95rem;color:var(--ink-2);margin-top:.5rem;letter-spacing:0}
   .ai-side{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center;text-align:left}
   @media(max-width:900px){.ai-side{grid-template-columns:1fr;gap:2.6rem}}
-  .ai-side .phone{width:min(250px,70%);margin:0 auto}
+  .ai-side .phone{width:min(250px,70%);margin:0 auto;transform:rotate(-4deg)}
   .shot-cap{font-size:.9rem;color:var(--ink-3);text-align:center;margin-top:1rem;max-width:30ch;margin-left:auto;margin-right:auto}
 
   /* ---------- use it your way ---------- */
@@ -268,10 +271,27 @@
   .way li{padding:.3rem 0;font-size:.95rem;color:var(--ink-2)}
   .way-close{margin:2rem auto 0;color:var(--ink-2);font-size:1.1rem;text-align:center}
 
+  /* ---------- asset placeholder ---------- */
+  .ph-box{border:2px dashed var(--line-2);border-radius:12px;background:rgba(245,245,243,.02);
+    padding:2rem 1.6rem;color:var(--ink-3);font-size:.95rem;line-height:1.55;text-align:center;
+    display:flex;flex-direction:column;gap:.6rem;align-items:center;justify-content:center;
+    transform:rotate(-1.5deg);min-height:260px}
+  .ph-box b{font-family:'Archivo',sans-serif;color:var(--ink-2);letter-spacing:.12em;font-size:.78rem}
+
   /* ---------- video embeds ---------- */
   .video-frame{position:relative;aspect-ratio:16/9;width:100%;border:1px solid var(--line-2);
-    border-radius:12px;overflow:hidden;background:var(--card)}
+    border-radius:12px;overflow:hidden;background:var(--card);cursor:pointer;
+    box-shadow:0 30px 70px rgba(0,0,0,.55)}
   .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video-frame>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .vf-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:76px;
+    border-radius:50%;border:0;background:var(--green);color:var(--green-ink);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 12px 34px rgba(0,0,0,.5);
+    transition:transform .15s ease}
+  .video-frame:hover .vf-play{transform:translate(-50%,-50%) scale(1.08)}
+  .vf-play svg{display:block;margin-left:5px}
+  .vf-tilt-l{transform:rotate(-1.6deg)}
+  .vf-tilt-r{transform:rotate(1.6deg)}
   .video-cap{font-size:.9rem;color:var(--ink-3);text-align:center;margin:0.8rem auto 0;max-width:none}
 
   /* ---------- realtors ---------- */
@@ -283,7 +303,10 @@
   .r-list li b{color:var(--ink);font-weight:700}
   .r-assets{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin:3rem auto 0;max-width:56rem}
   @media(max-width:700px){.r-assets{grid-template-columns:1fr;max-width:24rem}}
-  .r-assets figure{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem;margin:0}
+  .r-assets figure{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem;margin:0;
+    box-shadow:0 26px 60px rgba(0,0,0,.5)}
+  .r-assets figure:first-child{transform:rotate(-2deg)}
+  .r-assets figure:last-child{transform:rotate(2deg)}
   .r-assets img{display:block;width:100%;height:auto;border-radius:8px}
   .r-assets figcaption{font-size:.88rem;color:var(--ink-3);text-align:center;margin-top:.8rem}
 
@@ -588,15 +611,21 @@ provenance.
         </div>
       </div>
       <h3 class="sec-center" style="font-size:clamp(1.4rem,2.4vw,1.85rem);font-weight:800;margin-top:3.4rem;letter-spacing:-.02em">Have an idea? Put it inside <em style="font-style:normal;color:var(--green)">your mortgage app</em>.</h3>
-      <div class="idea-list">
-        <span>Custom calculators</span>
-        <span>AI assistants</span>
-        <span>Buyer guides</span>
-        <span>Realtor tools</span>
-        <span>Investor tools</span>
-        <span>Custom workflows</span>
-        <span>Videos and education</span>
-        <span>Lead-generation tools</span>
+      <div class="idea-grid">
+        <div class="idea-list">
+          <span>Custom calculators</span>
+          <span>AI assistants</span>
+          <span>Buyer guides</span>
+          <span>Realtor tools</span>
+          <span>Investor tools</span>
+          <span>Custom workflows</span>
+          <span>Videos and education</span>
+          <span>Lead-generation tools</span>
+        </div>
+        <div class="ph-box">
+          <b>IMAGE NEEDED</b>
+          <span>A screenshot of a custom tool a power user actually built, shown inside their branded app. Best candidate: a custom calculator or a unique workflow screen that does not exist in the standard app.</span>
+        </div>
       </div>
       <p class="way-close narrow">You do not have to be technical to use Pre-Approve Me. But if you are technical, creative, or AI-enabled, the platform does not have to hold you back.</p>
     </div>
@@ -644,7 +673,10 @@ provenance.
           </ul>
         </div>
         <div>
-          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/9LP1uSyPfyQ" title="Realtor tools in a mortgage app?" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <div class="video-frame vf-tilt-r" data-yt="9LP1uSyPfyQ" data-vtitle="Realtor tools in a mortgage app?" role="button" tabindex="0" aria-label="Play video: Realtor tools in a mortgage app?">
+            <img src="../assets/yt-realtor-tools.png" alt="Video: Realtor tools in a mortgage app?" width="1280" height="720" loading="lazy">
+            <span class="vf-play" aria-hidden="true"><svg width="26" height="30" viewBox="0 0 26 30" fill="none"><path d="M24 13.3L3.5.9C2.2.1.5 1 .5 2.6v24.8c0 1.6 1.7 2.5 3 1.7L24 16.7c1.3-.8 1.3-2.6 0-3.4z" fill="currentColor"/></svg></span>
+          </div>
           <p class="video-cap">Realtor tools in a mortgage app?</p>
         </div>
       </div>
@@ -697,7 +729,10 @@ provenance.
           <p style="margin-top:1rem">That is still the whole mission: put the loan officer in the palm of the client's hand, and keep them there for years.</p>
         </div>
         <div>
-          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/bg-4EyMbIZU" title="Loan officers: clients for life is real" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <div class="video-frame vf-tilt-l" data-yt="bg-4EyMbIZU" data-vtitle="Loan officers: clients for life is real" role="button" tabindex="0" aria-label="Play video: Loan officers, clients for life is real">
+            <img src="../assets/yt-clients-for-life.png" alt="Video: loan officers, clients for life is real" width="1280" height="720" loading="lazy">
+            <span class="vf-play" aria-hidden="true"><svg width="26" height="30" viewBox="0 0 26 30" fill="none"><path d="M24 13.3L3.5.9C2.2.1.5 1 .5 2.6v24.8c0 1.6 1.7 2.5 3 1.7L24 16.7c1.3-.8 1.3-2.6 0-3.4z" fill="currentColor"/></svg></span>
+          </div>
           <p class="video-cap">Loan officers: clients for life is real.</p>
         </div>
       </div>
@@ -737,6 +772,21 @@ provenance.
   <a class="btn btn-primary" href="https://calendar.app.google/QRzzaLYC4T55xYpXA" target="_blank" rel="noopener">Book a Demo</a>
 </div>
 <script>
+(function(){
+  document.querySelectorAll('.video-frame[data-yt]').forEach(function(f){
+    function play(){
+      if(f.dataset.done)return;f.dataset.done='1';
+      var i=document.createElement('iframe');
+      i.src='https://www.youtube-nocookie.com/embed/'+f.dataset.yt+'?autoplay=1';
+      i.title=f.dataset.vtitle||'Video';
+      i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      i.allowFullscreen=true;
+      f.innerHTML='';f.appendChild(i);
+    }
+    f.addEventListener('click',play);
+    f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
+  });
+})();
 (function(){
   var mq=window.matchMedia('(max-width: 700px)');
   var finalSec=document.querySelector('.final');
